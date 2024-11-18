@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import Home from "./pages/Home/Home";
+// import Home from "./pages/Home/Home";
 import "./styles/global.scss";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -20,6 +20,7 @@ import Loader from "./components/Loaders/maxLoader/Loader";
 import { useCartStore } from "./stores/useCartStore";
 import Success from "./pages/Success/Success";
 import Cancel from "./pages/Cancel/Cancel";
+import Dashboard from "./pages/Dashboard/Dashboard";
 const App = () => {
   const { user, checkAuth,checkingAuth } = useUserStore();
   const { getCartItems } = useCartStore();
@@ -44,7 +45,8 @@ const App = () => {
       <Toaster />
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/" element={<Dashboard />} />
         <Route
           path="/login"
           element={user ? <Navigate to="/"/> : <Login/>  }
