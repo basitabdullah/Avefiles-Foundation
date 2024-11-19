@@ -1,10 +1,11 @@
 import React from "react";
 import "./Dashboard.scss";
 import image from "../../assets/photo.jpg";
-
+import MetaData from "../../components/MetaData";
 const Dashboard = () => {
   return (
     <div className="dashboard">
+      <MetaData title={"Meteor | Home"} />
       <div className="section-one">
         <div className="left">
           <h1 className="headline">Avefiles Foundation</h1>
