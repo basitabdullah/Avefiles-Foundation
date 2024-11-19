@@ -27,7 +27,7 @@ const Signup = () => {
       transition={{ duration: 0.8 }}
       className="login"
     >
-      <MetaData title={"Meteor | SignUp"} />
+      <MetaData title={"Avefiles | SignUp"} />
 
       <form className="login-container">
         <h4>Signup</h4>
@@ -57,7 +57,8 @@ const Signup = () => {
           }
         />
         <button onClick={handleSubmit}>
-        {loading ? "Logging in..." : "Sign up"} <IoArrowForwardCircleOutline />
+          {loading ? "Logging in..." : "Sign up"}{" "}
+          <IoArrowForwardCircleOutline />
         </button>
         <p className="register-text">
           Already have an account? <a href="/login">Login</a>

@@ -63,7 +63,7 @@ const Shop = () => {
   ];
   return (
     <div className="shop">
-      <MetaData title={"Meteor | Shop"} />
+      <MetaData title={"Avefiles | Shop"} />
       <Carousel
         showStatus={false}
         showThumbs={false}

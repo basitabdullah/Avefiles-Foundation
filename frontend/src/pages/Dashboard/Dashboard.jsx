@@ -1,11 +1,12 @@
 import React from "react";
 import "./Dashboard.scss";
 import image from "../../assets/photo.jpg";
+import health from "../../assets/health.jpg";
 import MetaData from "../../components/MetaData";
 const Dashboard = () => {
   return (
     <div className="dashboard">
-      <MetaData title={"Meteor | Home"} />
+      <MetaData title={"Avefiles | Home"} />
       <div className="section-one">
         <div className="left">
           <h1 className="headline">Avefiles Foundation</h1>
@@ -24,43 +25,7 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="section-two">
-        <div class="what-we-do">
-          <div class="card">
-            <img src={image} alt="Emergency Care" class="card-image" />
-            <div class="card-content">
-              <h3 class="card-title">Health Care</h3>
-              <p class="card-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Corporis ducimus animi aspernatur atque molestias maxime ex vel
-                officia. Delectus porro possimus, magni repellat vero pariatur
-                consequatur perferendis voluptatibus cumque architecto?
-              </p>
-            </div>
-          </div>
-          <div class="card">
-            <img src={image} alt="Outpatient Services" class="card-image" />
-            <div class="card-content">
-              <h3 class="card-title">Education</h3>
-              <p class="card-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Corporis ducimus animi aspernatur atque molestias maxime ex vel
-                officia. Delectus porro possimus, magni repellat vero pariatur
-                consequatur perferendis voluptatibus cumque architecto?
-              </p>
-            </div>
-          </div>
-          {/* <div class="card">
-            <img src={image} alt="Surgical Expertise" class="card-image" />
-            <div class="card-content">
-              <h3 class="card-title">Entrepreneurs</h3>
-              <p class="card-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                eveniet iure delectus corporis maiores et molestias accusantium
-                dolores cum laboriosam fuga eum commodi, saepe porro eaque quia
-                mollitia fugit voluptates.
-              </p>
-            </div>
-          </div> */}
+       
         </div>
       </div>
     </div>
