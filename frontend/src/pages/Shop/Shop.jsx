@@ -74,7 +74,7 @@ const Shop = () => {
       >
         <CarouselContainer
           image={
-            "https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_1920/cms/6gwrEhj8SXRSYhCRhmjHli/97c732fd5075378aeb1e63caf9d2c7d4/24Q4_LoungerLift_Site_HomepageHero_Desktop_2880x1245_V1_WithNAV.jpg"
+            "https://images.unsplash.com/photo-1634798428682-56236f8490db?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           }
           feature={"Elevated"}
           name={"New Lounger Lift"}
@@ -82,7 +82,7 @@ const Shop = () => {
         />
         <CarouselContainer
           image={
-            "https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_1728/cms/6upxsUmrp3cgNr5doQ9pJ1/91cc1f25b6401428071d881a6317194b/24Q3_WoolPiperGo_Site_Homepage_Hero_Desktop_2880x1245_M.png"
+            "https://images.unsplash.com/photo-1630868313487-7e20af009ad5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           }
           feature={"Classic"}
           name={"the new wool piper go"}

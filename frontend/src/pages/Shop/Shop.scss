@@ -8,8 +8,9 @@
 
     img {
       width: 100%;
-      height: auto;
+      height: 90vh;
       display: block;
+      object-fit: cover;
 
       @media (max-width: 1078px) {
         object-fit: cover;
