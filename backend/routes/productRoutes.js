@@ -13,21 +13,14 @@ import {
 import { adminRoute, protectRoute } from "../middlewares/authMiddleware.js";
 const router = express.Router();
 
-// Product routes
 router.post("/", protectRoute, adminRoute, createProduct);
 router.get("/", getAllProducts);
-
-// Specific routes come first
-router.get("/search", searchProducts);
+router.delete("/:id", protectRoute, adminRoute, deleteProduct);
 router.get("/category/:category", getProductsByCategory);
 router.get("/recommended", getRecommendedProducts);
+router.patch("/:id",protectRoute ,adminRoute, toggleFeaturedProducts);
 router.get("/featured", getFeaturedProducts);
-
-// Admin routes
-router.get("/:id/toggle-featured", protectRoute, adminRoute, toggleFeaturedProducts); // Use more descriptive route
-router.delete("/:id", protectRoute, adminRoute, deleteProduct);
-
-// General single product route should come last
+router.get ("/search",searchProducts)
 router.get("/:id", getSingleProduct);
 
 export default router;
