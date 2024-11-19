@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-// import Home from "./pages/Home/Home";
+import Home from "./pages/Home/Home";
 import "./styles/global.scss";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -46,7 +46,7 @@ const App = () => {
       <Toaster />
       <ScrollToTop />
       <Routes>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/home" element={<Home />} />
         <Route path="/" element={<Dashboard />} />
         <Route
           path="/login"

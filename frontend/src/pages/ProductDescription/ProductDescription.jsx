@@ -13,7 +13,7 @@ const ProductDescription = () => {
 
 
   return (
-    <div className="product-description">
+    <div className="product-description-page">
       <div className="top">
         <div className="left">
           <img

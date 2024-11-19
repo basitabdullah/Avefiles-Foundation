@@ -6,8 +6,8 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="left-footer">
-        <h4>What's New</h4>
-        <p>Exclusive offers, a heads up on new things</p>
+        <h4>Our Mission</h4>
+        <p>Together we can change the world.</p>
       </div>
 
       <div className="mid-footer">
