@@ -51,7 +51,7 @@ const Search = () => {
       transition={{ duration: 0.8 }}
       className="search"
     >
-      <MetaData title={"Meteor | Products-Search"} />
+      <MetaData title={"Avefiles | Products-Search"} />
 
       <div className="filters">
         <h4>Filters</h4>

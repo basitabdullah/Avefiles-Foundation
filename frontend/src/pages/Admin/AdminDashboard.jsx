@@ -9,7 +9,7 @@ const AdminDashboard = () => {
   const [page, setPage] = useState("create Product");
   return (
     <div className="admin">
-      <MetaData title={"Meteor | Admin-Dashboard"} />
+      <MetaData title={"Avefiles | Admin-Dashboard"} />
 
       <h1>Admin Dashboard</h1>
       <div className="pageSwitcher">

@@ -23,7 +23,7 @@ const Login = () => {
       transition={{ duration: 0.8 }}
       className="login"
     >
-      <MetaData title={"Meteor | Login"} />
+      <MetaData title={"Avefiles | Login"} />
 
       <form className="login-container" onSubmit={handleSubmit}>
         <h4>Login</h4>

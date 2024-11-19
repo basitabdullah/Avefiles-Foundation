@@ -30,7 +30,7 @@ const Contact = () => {
       transition={{ duration: 0.8 }}
       className="contact"
     >
-      <MetaData title={"Meteor | Contact"} />
+      <MetaData title={"Avefiles | Contact"} />
       <h1>Contact Meteor</h1>
       <form onSubmit={handleSubmit}>
         <div className="upper">
