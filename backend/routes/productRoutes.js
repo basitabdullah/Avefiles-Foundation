@@ -6,6 +6,7 @@ import {
   getFeaturedProducts,
   getProductsByCategory,
   getRecommendedProducts,
+  getSingleProduct,
   searchProducts,
   toggleFeaturedProducts,
 } from "../controllers/productController.js";
@@ -20,5 +21,6 @@ router.get("/recommended", getRecommendedProducts);
 router.patch("/:id",protectRoute ,adminRoute, toggleFeaturedProducts);
 router.get("/featured", getFeaturedProducts);
 router.get ("/search",searchProducts)
+router.get("/:id", getSingleProduct);
 
 export default router;

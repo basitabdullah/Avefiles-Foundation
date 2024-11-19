@@ -2,7 +2,6 @@ import { create } from "zustand";
 import { toast } from "react-hot-toast";
 import axios from "../lib/axios.js";
 
-
 export const useProductStore = create((set, get) => ({
   products: [],
   loading: false,
@@ -36,6 +35,16 @@ export const useProductStore = create((set, get) => ({
     }
   },
 
+  fetchSingleProduct: async (id) => {
+    set({ loading: true });
+    try {
+      const res = await axios.get(`/product/${id}`);
+      set({ product: res.data, loading: false });
+    } catch (error) {
+      toast.error(error.response.data.message || "Something went wrong");
+      set({ product: null, loading: false });
+    }
+  },
   fetchProductsByCategory: async (category) => {
     set({ loading: true });
 
@@ -84,7 +93,6 @@ export const useProductStore = create((set, get) => ({
     try {
       const res = await axios.get("/product/recommended");
       set({ products: res.data, loading: false });
-      
     } catch (error) {
       toast.error(error.response.data.meessage || "Something went wrong");
     }
@@ -95,20 +103,19 @@ export const useProductStore = create((set, get) => ({
     try {
       const res = await axios.get("/product/featured");
       set({ products: res.data, loading: false });
-      
     } catch (error) {
       toast.error(error.response.data.meessage || "Something went wrong");
     }
   },
-  searchProducts : async (query,sort,maxprice,category)=>{
+  searchProducts: async (query, sort, maxprice, category) => {
     set({ loading: true });
     try {
-      const res = await axios.get(`/product/search?query=${query}&sort=${sort}&maxPrice=${maxprice}&category=${category}`);
+      const res = await axios.get(
+        `/product/search?query=${query}&sort=${sort}&maxPrice=${maxprice}&category=${category}`
+      );
       set({ products: res.data, loading: false });
-      
     } catch (error) {
       toast.error(error.response.data.meessage || "Something went wrong");
     }
-  }
-  
-}))
+  },
+}));

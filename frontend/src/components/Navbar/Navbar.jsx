@@ -22,12 +22,11 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="left-sec">
-        {/* <Link to={"/"}>
-          <p>HOME</p>
-        </Link> */}
-        
         <Link to={"/"}>
-          <p>Dashboard</p>
+          <p>Home</p>
+        </Link>
+        <Link to={"/shop"}>
+          <p>Shop</p>
         </Link>
         <Link to={"/search"}>
           <p>PRODUCTS</p>
@@ -37,7 +36,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="logo">
-        <Link to={"/"}>meteor</Link>
+        <Link to={"/"}>avefiles foundation</Link>
       </div>
       <div className="right-sec">
         <Link to={"/about"}>

@@ -1,4 +1,4 @@
-import "./Home.scss";
+import "./Shop.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import Product from "../../components/Product/Product";
@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "../../lib/axios.js";
 
-const Home = () => {
+const Shop = () => {
   const { getFeaturedProducts, products } = useProductStore();
   const [email, setEmail] = useState();
   const [name, setName] = useState();
@@ -62,8 +62,8 @@ const Home = () => {
     },
   ];
   return (
-    <div className="home">
-      <MetaData title={"Meteor | Home"} />
+    <div className="shop">
+      <MetaData title={"Meteor | Shop"} />
       <Carousel
         showStatus={false}
         showThumbs={false}
@@ -164,4 +164,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Shop;

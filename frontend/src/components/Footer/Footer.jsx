@@ -6,15 +6,15 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="left-footer">
-        <h4>What's New</h4>
-        <p>Exclusive offers, a heads up on new things</p>
+        <h4>Our Mission</h4>
+        <p>Together we can change the world.</p>
       </div>
 
       <div className="mid-footer">
-        <h1>meteor </h1>
-        <p>High Quality is our first priority</p>
+        <h1>avefiles foundation</h1>
+        <p>Helping others is our first priority</p>
 
-        <p>Copyright 2024 &copy; Meteor Eccomerce</p>
+        <p>Copyright 2024 &copy; avefiles foundation</p>
       </div>
 
       <div className="right-footer">
