@@ -79,7 +79,7 @@ const Cart = () => {
       transition={{ duration: 0.8 }}
       className="cart"
     >
-      <MetaData title={"Meteor | Cart"} />
+      <MetaData title={"Avefiles | Cart"} />
       {cart.length === 0 ? (
         <div className="empty-cart-container">
           <div className="empty-cart">

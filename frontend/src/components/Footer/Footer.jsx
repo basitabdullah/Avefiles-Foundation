@@ -11,7 +11,7 @@ const Footer = () => {
       </div>
 
       <div className="mid-footer">
-        <h1>avefiles foundation</h1>
+        <h1>Avefiles Foundation</h1>
         <p>Helping others is our first priority</p>
 
         <p>Copyright 2024 &copy; avefiles foundation</p>
@@ -21,15 +21,24 @@ const Footer = () => {
         <h4>Follow Us</h4>
         <div className="link">
           <BsTwitterX />
-          <a href="https://x.com/BASITAbdul15666" target="_blank">Twitter</a>
+          <a href="https://x.com/BASITAbdul15666" target="_blank">
+            Twitter
+          </a>
         </div>
         <div className="link">
           <FaLinkedin />
-          <a href="https://www.linkedin.com/in/fahim-abdullah-474900253/" target="_blank">LinkedIn</a>
+          <a
+            href="https://www.linkedin.com/in/fahim-abdullah-474900253/"
+            target="_blank"
+          >
+            LinkedIn
+          </a>
         </div>
         <div className="link">
           <FaGithub />
-          <a href="https://github.com/basitabdullah" target="_blank">Github</a>
+          <a href="https://github.com/basitabdullah" target="_blank">
+            Github
+          </a>
         </div>
       </div>
     </footer>
