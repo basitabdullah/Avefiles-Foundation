@@ -124,6 +124,8 @@ export const toggleFeaturedProducts = async (req, res) => {
     res.status(401).json({
       message: error.message,
     });
+    console.log(error.message);
+    
   }
 };
 
