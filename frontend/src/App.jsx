@@ -21,6 +21,7 @@ import { useCartStore } from "./stores/useCartStore";
 import Success from "./pages/Success/Success";
 import Cancel from "./pages/Cancel/Cancel";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import ProductDescription from "./pages/ProductDescription/ProductDescription";
 const App = () => {
   const { user, checkAuth,checkingAuth } = useUserStore();
   const { getCartItems } = useCartStore();
@@ -58,6 +59,7 @@ const App = () => {
         <Route path="/signup" element={user ? <Navigate to="/"/> : <Signup/>  } />
         <Route path="/category/:category" element={<Category />} />
         <Route path="/cart" element={user ? <Cart /> : <Navigate to="/" />} />
+        <Route path="/product-description/:id" element={<ProductDescription/>} />
         <Route path="/search" element={<Search />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/contact-us" element={<Contact />} />
