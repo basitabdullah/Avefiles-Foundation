@@ -11,10 +11,10 @@ const Footer = () => {
       </div>
 
       <div className="mid-footer">
-        <h1>meteor </h1>
-        <p>High Quality is our first priority</p>
+        <h1>avefiles foundation</h1>
+        <p>Helping others is our first priority</p>
 
-        <p>Copyright 2024 &copy; Meteor Eccomerce</p>
+        <p>Copyright 2024 &copy; avefiles foundation</p>
       </div>
 
       <div className="right-footer">

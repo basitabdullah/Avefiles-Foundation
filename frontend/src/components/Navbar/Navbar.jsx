@@ -37,7 +37,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="logo">
-        <Link to={"/"}>meteor</Link>
+        <Link to={"/"}>avefiles foundation</Link>
       </div>
       <div className="right-sec">
         <Link to={"/about"}>
