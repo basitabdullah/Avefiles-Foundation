@@ -21,7 +21,7 @@ const ProductDescription = () => {
             alt="error"
           />
         </div>
-        <div className="right">
+        <div className="right-product-description">
           <h1>{product?.name}</h1>
           <p className="price">${product?.price}</p>
           <p className="desc">
