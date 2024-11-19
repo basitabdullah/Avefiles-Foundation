@@ -12,7 +12,6 @@
   color: black;
   @media (max-width: 770px) {
     width: 300px;
-    
   }
   @media (max-width: 640px) {
     width: 200px;
@@ -42,7 +41,6 @@
       width: 80px;
       height: 80px;
     }
-  
   }
 
   .details {
@@ -60,7 +58,7 @@
       width: 98%;
       min-height: 40px;
       @media (max-width: 640px) {
-       font-size: 15px;
+        font-size: 15px;
       }
     }
 
@@ -70,20 +68,41 @@
       font-size: 18px;
     }
 
-    button {
-      padding: 10px;
-      outline: none;
-      border: none;
-      background-color: black;
-      color: white;
-      transition: 0.45s ease;
-      cursor: pointer;
-      @media (max-width: 640px) {
+    .buttons {
+      display: flex;
+      gap: 10px;
+
+      a {
         padding: 5px;
-       }
-      &:hover {
-        transform: scale(1.1);
-        background-color: #6d6d6d;
+        outline: none;
+        border: none;
+        background-color: black;
+        color: white;
+        transition: 0.45s ease;
+        cursor: pointer;
+        @media (max-width: 640px) {
+          padding: 5px;
+        }
+        &:hover {
+          transform: scale(1.1);
+          background-color: #6d6d6d;
+        }
+      }
+      button {
+        padding: 5px;
+        outline: none;
+        border: none;
+        background-color: black;
+        color: white;
+        transition: 0.45s ease;
+        cursor: pointer;
+        @media (max-width: 640px) {
+          padding: 5px;
+        }
+        &:hover {
+          transform: scale(1.1);
+          background-color: #6d6d6d;
+        }
       }
     }
   }

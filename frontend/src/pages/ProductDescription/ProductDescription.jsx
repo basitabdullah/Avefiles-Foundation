@@ -2,10 +2,12 @@ import "./ProductDescription.scss";
 import {useParams} from "react-router-dom"
 import {useProductStore} from "../../stores/useProductStore"
 import { useEffect } from "react";
+import { useCartStore } from "../../stores/useCartStore";
 const ProductDescription = () => {
 
   const {id} = useParams()
   const {fetchSingleProduct,product} = useProductStore()
+  const {addToCart} = useCartStore()
 
   useEffect(() => {
     fetchSingleProduct(id)
@@ -31,7 +33,7 @@ const ProductDescription = () => {
             <span>Note:</span> All the amout you pay is going in our bank
             account, so spend it wisely 👍
           </p>
-          <button>Add to cart</button>
+          <button onClick={()=>addToCart(product)}>Add to cart</button>
         </div>
       </div>
     </div>

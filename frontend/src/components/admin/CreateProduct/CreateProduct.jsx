@@ -30,6 +30,13 @@ const CreateProduct = () => {
     e.preventDefault()
     try {
       createProduct(newProduct)
+      setNewProduct({
+        name: "",
+        description: "",
+        price: 0,
+        category: "",
+        image: "",
+      })
     } catch (error) {
       console.log("Error Occured!");
       
@@ -44,6 +51,7 @@ const CreateProduct = () => {
         <input
           id="product-name"
           type="text"
+          value={newProduct.name}
           onChange={(e) => {
             setNewProduct({ ...newProduct, name: e.target.value });
           }}
@@ -51,6 +59,7 @@ const CreateProduct = () => {
 
         <label htmlFor="product-description">Description</label>
         <textarea
+        value={newProduct.description}
           id="product-description"
           onChange={(e) => {
             setNewProduct({ ...newProduct, description: e.target.value });
@@ -59,6 +68,7 @@ const CreateProduct = () => {
 
         <label htmlFor="product-price">Price</label>
         <input
+        value={newProduct.price}
           id="product-price"
           type="number"
           onChange={(e) => {
@@ -68,6 +78,7 @@ const CreateProduct = () => {
 
         <label htmlFor="product-category">Category</label>
         <select
+        value={newProduct.category}
           id="product-category"
           onChange={(e) => {
             setNewProduct({ ...newProduct, category: e.target.value });
