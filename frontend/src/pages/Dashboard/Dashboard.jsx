@@ -23,6 +23,46 @@ const Dashboard = () => {
           <img src={image} />
         </div>
       </div>
+      <div className="section-two">
+        <div class="what-we-do">
+          <div class="card">
+            <img src={image} alt="Emergency Care" class="card-image" />
+            <div class="card-content">
+              <h3 class="card-title">Health Care</h3>
+              <p class="card-description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Corporis ducimus animi aspernatur atque molestias maxime ex vel
+                officia. Delectus porro possimus, magni repellat vero pariatur
+                consequatur perferendis voluptatibus cumque architecto?
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img src={image} alt="Outpatient Services" class="card-image" />
+            <div class="card-content">
+              <h3 class="card-title">Education</h3>
+              <p class="card-description">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Corporis ducimus animi aspernatur atque molestias maxime ex vel
+                officia. Delectus porro possimus, magni repellat vero pariatur
+                consequatur perferendis voluptatibus cumque architecto?
+              </p>
+            </div>
+          </div>
+          {/* <div class="card">
+            <img src={image} alt="Surgical Expertise" class="card-image" />
+            <div class="card-content">
+              <h3 class="card-title">Entrepreneurs</h3>
+              <p class="card-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
+                eveniet iure delectus corporis maiores et molestias accusantium
+                dolores cum laboriosam fuga eum commodi, saepe porro eaque quia
+                mollitia fugit voluptates.
+              </p>
+            </div>
+          </div> */}
+        </div>
+      </div>
     </div>
   );
 };
