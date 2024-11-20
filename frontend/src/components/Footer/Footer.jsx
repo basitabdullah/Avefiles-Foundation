@@ -2,6 +2,7 @@ import "./Footer.scss";
 import { BsTwitterX } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import logo from "../../assets/logo.jpg";
 const Footer = () => {
   return (
     <footer className="footer">
@@ -11,7 +12,10 @@ const Footer = () => {
       </div>
 
       <div className="mid-footer">
-        <h1>Avefiles Foundation</h1>
+         <div className="logo">
+          <img src={logo} alt="err" />
+         <h1>Avefiles Foundation</h1>
+         </div>
         <p>Helping others is our first priority</p>
 
         <p>Copyright 2024 &copy; avefiles foundation</p>

@@ -3,12 +3,8 @@ import "./Dashboard.scss";
 import image from "../../assets/photo.jpg";
 import poor from "../../assets/poor.jpg";
 import MetaData from "../../components/MetaData";
-<<<<<<< HEAD
-
-=======
 import { toast } from "react-hot-toast";
 import axios from "../../lib/axios";
->>>>>>> 17175c1eedfcea68cd414f90faa1fa7598f2313d
 const Dashboard = () => {
   const [email, setEmail] = useState();
   const [name, setName] = useState();
@@ -27,7 +23,6 @@ const Dashboard = () => {
       toast.error("Internal Server Error, Try Again!");
       setLoading(false);
       console.log(error);
-      
     }
   };
   return (
@@ -37,6 +32,10 @@ const Dashboard = () => {
         <div className="left">
           <h1 className="headline">Avefiles Foundation</h1>
           <p>
+            We are dedicated to creating meaningful change in the lives of those
+            who need it most. Our mission is to empower communities through
+            impactful initiatives, providing resources and opportunities for a
+            brighter future.
             We are dedicated to creating meaningful change in the lives of those
             who need it most. Our mission is to empower communities through
             impactful initiatives, providing resources and opportunities for a
@@ -58,7 +57,7 @@ const Dashboard = () => {
       </div>
 
       <div className="section-two">
-        <h1 className="heading">Services</h1>
+        <h1>Our Services</h1>
         <div className="cards-container">
           <div className="card">
             <img src={poor} alt="Card 1" className="card-image" />
@@ -68,6 +67,7 @@ const Dashboard = () => {
               <button className="learn-more-btn">Learn More</button>
             </div>
           </div>
+
           <div className="card">
             <img src={poor} alt="Card 1" className="card-image" />
             <div className="card-content">
@@ -76,6 +76,7 @@ const Dashboard = () => {
               <button className="learn-more-btn">Learn More</button>
             </div>
           </div>
+
           <div className="card">
             <img src={poor} alt="Card 1" className="card-image" />
             <div className="card-content">
@@ -84,6 +85,7 @@ const Dashboard = () => {
               <button className="learn-more-btn">Learn More</button>
             </div>
           </div>
+          
         </div>
       </div>
 
