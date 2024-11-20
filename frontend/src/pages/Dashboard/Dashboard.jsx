@@ -3,7 +3,12 @@ import "./Dashboard.scss";
 import image from "../../assets/photo.jpg";
 import poor from "../../assets/poor.jpg";
 import MetaData from "../../components/MetaData";
+<<<<<<< HEAD
 
+=======
+import { toast } from "react-hot-toast";
+import axios from "../../lib/axios";
+>>>>>>> 17175c1eedfcea68cd414f90faa1fa7598f2313d
 const Dashboard = () => {
   const [email, setEmail] = useState();
   const [name, setName] = useState();
@@ -21,6 +26,8 @@ const Dashboard = () => {
     } catch (error) {
       toast.error("Internal Server Error, Try Again!");
       setLoading(false);
+      console.log(error);
+      
     }
   };
   return (
