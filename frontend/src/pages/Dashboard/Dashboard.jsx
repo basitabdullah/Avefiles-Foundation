@@ -4,6 +4,7 @@ import image from "../../assets/photo.jpg";
 import health from "../../assets/health.jpg";
 import poor from "../../assets/poor.jpg";
 import MetaData from "../../components/MetaData";
+
 const Dashboard = () => {
   return (
     <div className="dashboard">
