@@ -30,7 +30,10 @@ const Dashboard = () => {
         <div className="left">
           <h1 className="headline">Avefiles Foundation</h1>
           <p>
-          We are dedicated to creating meaningful change in the lives of those who need it most. Our mission is to empower communities through impactful initiatives, providing resources and opportunities for a brighter future.
+            We are dedicated to creating meaningful change in the lives of those
+            who need it most. Our mission is to empower communities through
+            impactful initiatives, providing resources and opportunities for a
+            brighter future.
           </p>
 
           <button className="donate-btn">Donate Now</button>
@@ -48,6 +51,7 @@ const Dashboard = () => {
       </div>
 
       <div className="section-two">
+        <h1 className="heading">Services</h1>
         <div className="cards-container">
           <div className="card">
             <img src={poor} alt="Card 1" className="card-image" />
