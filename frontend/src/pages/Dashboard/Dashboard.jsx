@@ -36,6 +36,10 @@ const Dashboard = () => {
             who need it most. Our mission is to empower communities through
             impactful initiatives, providing resources and opportunities for a
             brighter future.
+            We are dedicated to creating meaningful change in the lives of those
+            who need it most. Our mission is to empower communities through
+            impactful initiatives, providing resources and opportunities for a
+            brighter future.
           </p>
 
           <button className="donate-btn">Donate Now</button>
@@ -54,6 +58,7 @@ const Dashboard = () => {
 
       <div className="section-two">
         <h1 className="heading">Services</h1>
+        <h1>Our Services</h1>
         <div className="cards-container">
           <div className="card">
             <img src={poor} alt="Card 1" className="card-image" />
@@ -63,6 +68,7 @@ const Dashboard = () => {
               <button className="learn-more-btn">Learn More</button>
             </div>
           </div>
+
           <div className="card">
             <img src={poor} alt="Card 1" className="card-image" />
             <div className="card-content">
@@ -71,6 +77,7 @@ const Dashboard = () => {
               <button className="learn-more-btn">Learn More</button>
             </div>
           </div>
+
           <div className="card">
             <img src={poor} alt="Card 1" className="card-image" />
             <div className="card-content">
@@ -79,6 +86,7 @@ const Dashboard = () => {
               <button className="learn-more-btn">Learn More</button>
             </div>
           </div>
+          
         </div>
       </div>
 
