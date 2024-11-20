@@ -30,8 +30,7 @@ const ProductDescription = () => {
             {product?.description}
           </p>
           <p className="note">
-            <span>Note:</span> All the amout you pay is going in our bank
-            account, so spend it wisely 👍
+            <span>Note:</span> Your entire payment contributes to making a difference: 50% supports our operations, while the remaining 50% is directly donated to those in need.
           </p>
           <button onClick={()=>addToCart(product)}>Add to cart</button>
         </div>

@@ -16,24 +16,9 @@ import bioImg from "../../assets/categories-bio.jpeg";
 
 const Shop = () => {
   const { getFeaturedProducts, products } = useProductStore();
-  const [email, setEmail] = useState();
-  const [name, setName] = useState();
-  const [message, setMessage] = useState();
-  const [loading, setLoading] = useState(false);
+  
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
 
-    try {
-      await axios.post("/send-email", { name, email, message });
-      toast.success("Message Sent Successfully!");
-      setLoading(false);
-    } catch (error) {
-      toast.error("Internal Server Error, Try Again!");
-      setLoading(false);
-    }
-  };
   useEffect(() => {
     getFeaturedProducts();
   }, [getFeaturedProducts]);
@@ -68,11 +53,13 @@ const Shop = () => {
       >
         <CarouselContainer
           image={
-            "https://images.unsplash.com/photo-1634798428682-56236f8490db?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            "https://images.unsplash.com/photo-1604041362687-bbeedd4e63ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           }
           feature={"Poor"}
           name={"Helping"}
-          desc={"Shop for change, because every item tells a story of betterment."}
+          desc={
+            "Shop for change, because every item tells a story of betterment."
+          }
         />
         <CarouselContainer
           image={
@@ -110,7 +97,7 @@ const Shop = () => {
         <div className="text">
           <h2>Every purchase you make plants a seed of hope.</h2>
           <p>
-          We make a living by what we get, but we make a life by what we give.
+            We make a living by what we get, but we make a life by what we give.
           </p>
           <span>avefiles</span>
         </div>
@@ -124,34 +111,7 @@ const Shop = () => {
         ))}
       </div>
 
-      {/* <div className="contact-us">
-        <h2>Hire the developer😁</h2>
-        <p>Contact the developer to build MERN stack web applictions.</p>
-        <form className="input-container" onSubmit={handleSubmit}>
-          <div className="name-email-wrapper">
-            <input
-              required
-              type="name"
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Name"
-            />
-            <input
-              required
-              type="email"
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-            />
-          </div>
-          <textarea
-            onChange={(e) => setMessage(e.target.value)}
-            required
-            placeholder="Message here..."
-          />
-          <button disabled={loading} type="submit">
-            {loading ? "Sending..." : "Contact"}
-          </button>
-        </form>
-      </div> */}
+      
     </div>
   );
 };
