@@ -57,7 +57,6 @@ const Dashboard = () => {
       </div>
 
       <div className="section-two">
-        <h1 className="heading">Services</h1>
         <h1>Our Services</h1>
         <div className="cards-container">
           <div className="card">
