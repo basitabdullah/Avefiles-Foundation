@@ -21,7 +21,7 @@
       }
     }
     .description {
-      top: 50%; // Vertically center the text
+      top: 48%; // Vertically center the text
       right: 20px; // Position it 20px from the right side (you can adjust this value)
       transform: translateY(-50%);
       position: absolute;
@@ -84,6 +84,7 @@
             font-size: 30px;
             letter-spacing: 1px;
             font-weight: 400;
+            
             @media (max-width: 800px) {
               font-size: 20px;
             }

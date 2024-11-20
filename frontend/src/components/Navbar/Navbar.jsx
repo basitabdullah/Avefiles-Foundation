@@ -8,6 +8,7 @@ import { useUserStore } from "../../stores/useUserStore";
 import { useCartStore } from "../../stores/useCartStore";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useEffect, useState } from "react";
+import logo from "../../assets/logo.jpg";
 const Navbar = () => {
   const [hamburgerMenu, setHamburgerMenu] = useState(false);
   const { logout, user } = useUserStore();
@@ -31,13 +32,21 @@ const Navbar = () => {
         <Link to={"/search"}>
           <p>PRODUCTS</p>
         </Link>
-        <Link to={"/contact-us"}>
+        {/* <Link to={"/contact-us"}>
           <p>CONTACT</p>
+        </Link> */}
+        <Link to={"/services"}>
+          <p>Services</p>
         </Link>
       </div>
-      <div className="logo">
-        <Link to={"/"}>avefiles foundation</Link>
-      </div>
+      <Link to={"/"}>
+        <div className="logo-wrapper">
+          <div className="logo">
+            <img src={logo} alt="err" />
+          </div>
+          <p>Avefiles Foundation</p>
+        </div>
+      </Link>
       <div className="right-sec">
         <Link to={"/about"}>
           <p>ABOUT</p>

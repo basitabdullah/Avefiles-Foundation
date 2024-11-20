@@ -10,6 +10,9 @@ import { useProductStore } from "../../stores/useProductStore.js";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "../../lib/axios.js";
+import apperalsImg from "../../assets/categories-apperals.jpeg";
+import stationaryImg from "../../assets/categories-stationary.webp";
+import bioImg from "../../assets/categories-bio.jpeg";
 
 const Shop = () => {
   const { getFeaturedProducts, products } = useProductStore();
@@ -37,28 +40,19 @@ const Shop = () => {
 
   const categories = [
     {
-      href: "/men",
-      name: "Men",
-      imageUrl:
-        "https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_2000/cms/6MN5mrkw6hRncfKz6WSWYA/37ebe57832867529a22fb18df792815f/24Q3_FallFlow2_Site_ShopableFeatured_Desktop_2000x2000.jpg",
+      href: "/stationary",
+      name: "Stationary",
+      imageUrl: stationaryImg,
     },
     {
-      href: "/women",
-      name: "Women",
-      imageUrl:
-        "https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_1000/cms/6h3QXLL5Q7BSJalZ58YJ2c/37200a9dd056e864b378c8355cebfab2/24Q3_Tree_Breezer_Knit_Homepage_Dual-Panel_Module-1_Desktop_Mobile_2000x2000.png",
+      href: "/apperal",
+      name: "Apperal",
+      imageUrl: apperalsImg,
     },
     {
-      href: "/kids",
-      name: "Kids",
-      imageUrl:
-        "https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_1000/cms/TvLw7h5S6jQOw7fjGk753/4fbec36b099aeaa7e3134e9abefba408/24Q3_August_SeasonalCore_WorldOfComfort_Product_Homepage_Hero_Mobile_Option3_Clean_1651x1674.png",
-    },
-    {
-      href: "/socks",
-      name: "Socks",
-      imageUrl:
-        "https://images.unsplash.com/photo-1640026199235-c24aa417b552?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      href: "/bio-degradable",
+      name: "Bio Degradable",
+      imageUrl: bioImg,
     },
   ];
   return (
@@ -70,22 +64,22 @@ const Shop = () => {
         showArrows={false}
         autoPlay={true}
         infiniteLoop={true}
-        interval={5000}
+        interval={3000}
       >
         <CarouselContainer
           image={
             "https://images.unsplash.com/photo-1634798428682-56236f8490db?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           }
-          feature={"Elevated"}
-          name={"New Lounger Lift"}
-          desc={"Time Less sneaker reimagined into the comfort staple yet"}
+          feature={"Poor"}
+          name={"Helping"}
+          desc={"Shop for change, because every item tells a story of betterment."}
         />
         <CarouselContainer
           image={
             "https://images.unsplash.com/photo-1630868313487-7e20af009ad5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           }
-          feature={"Classic"}
-          name={"the new wool piper go"}
+          feature={"Needy "}
+          name={"Empowering"}
           desc={"The new way to wear your favorite sneaker"}
         />
       </Carousel>
@@ -114,13 +108,11 @@ const Shop = () => {
           alt="err"
         />
         <div className="text">
-          <h2>We Make Better Things In A Better Way</h2>
+          <h2>Every purchase you make plants a seed of hope.</h2>
           <p>
-            By looking to the world’s greatest innovator—Nature—we create shoes
-            that deliver unrivaled comfort that you feel good in and feel good
-            about.
+          We make a living by what we get, but we make a life by what we give.
           </p>
-          <span>meteor</span>
+          <span>avefiles</span>
         </div>
       </div>
 
@@ -132,7 +124,7 @@ const Shop = () => {
         ))}
       </div>
 
-      <div className="contact-us">
+      {/* <div className="contact-us">
         <h2>Hire the developer😁</h2>
         <p>Contact the developer to build MERN stack web applictions.</p>
         <form className="input-container" onSubmit={handleSubmit}>
@@ -159,7 +151,7 @@ const Shop = () => {
             {loading ? "Sending..." : "Contact"}
           </button>
         </form>
-      </div>
+      </div> */}
     </div>
   );
 };

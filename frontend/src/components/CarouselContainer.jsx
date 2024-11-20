@@ -8,12 +8,12 @@ const CarouselContainer = ({image,name,feature,desc}) => {
               <p className="product-name">{name}</p>
               <div className="product-feature">
                 <p className="classic">{feature}</p>
-                <p className="nature">by nature</p>
+                <p className="nature">by donation</p>
               </div>
             </div>
             <div className="bottom">
               <p>{desc}</p>
-              <a href="#categories" className="shop-now">Shop Now</a>
+              <a href="#categories" className="shop-now">Donate</a>
             </div>
           </div>
         </div>

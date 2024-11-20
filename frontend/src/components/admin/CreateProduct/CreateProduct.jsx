@@ -10,7 +10,7 @@ const CreateProduct = () => {
     category: "",
     image: "",
   });
-  const categories = ["men", "women", "kids", "socks"];
+  const categories = ["stationary", "apperal", "bio-degradable", ""];
   const { loading, createProduct } = useProductStore();
 
 
