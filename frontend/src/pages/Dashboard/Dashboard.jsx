@@ -2,6 +2,7 @@ import React from "react";
 import "./Dashboard.scss";
 import image from "../../assets/photo.jpg";
 import health from "../../assets/health.jpg";
+import poor from "../../assets/poor.jpg";
 import MetaData from "../../components/MetaData";
 const Dashboard = () => {
   return (
@@ -24,46 +25,40 @@ const Dashboard = () => {
           <img src={image} />
         </div>
       </div>
+      <div className="full-width-image">
+        <img src={poor} alt="Background" className="background-image" />
+        <div className="overlay-text">
+          <h1>Let's Come Togethrer</h1>
+          <p>Every Voice Needs To Be Heard</p>
+        </div>
+      </div>
+
       <div className="section-two">
-        <div className="what-we-do">
+        <div className="cards-container">
           <div className="card">
-            <div className="card-image">
-              <img src={health} alt="Emergency Care" />
-            </div>
+            <img src={poor} alt="Card 1" className="card-image" />
             <div className="card-content">
-              <h3 className="card-title">Health Care</h3>
-              <p className="card-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Corporis ducimus animi aspernatur atque molestias maxime ex vel
-                officia. Delectus porro possimus, magni repellat vero pariatur
-                consequatur perferendis voluptatibus cumque architecto?
-              </p>
-            </div>
-          </div>
-          {/* <div className="card">
-            <img src={image} alt="Outpatient Services" className="card-image" />
-            <div className="card-content">
-              <h3 className="card-title">Education</h3>
-              <p className="card-description">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Corporis ducimus animi aspernatur atque molestias maxime ex vel
-                officia. Delectus porro possimus, magni repellat vero pariatur
-                consequatur perferendis voluptatibus cumque architecto?
-              </p>
+              <h3>Card Title 1</h3>
+              <p>Brief description for card 1 goes here.</p>
+              <button className="learn-more-btn">Learn More</button>
             </div>
           </div>
           <div className="card">
-            <img src={image} alt="Surgical Expertise" className="card-image" />
+            <img src={poor} alt="Card 1" className="card-image" />
             <div className="card-content">
-              <h3 className="card-title">Entrepreneurs</h3>
-              <p className="card-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-                eveniet iure delectus corporis maiores et molestias accusantium
-                dolores cum laboriosam fuga eum commodi, saepe porro eaque quia
-                mollitia fugit voluptates.
-              </p>
+              <h3>Card Title 1</h3>
+              <p>Brief description for card 1 goes here.</p>
+              <button className="learn-more-btn">Learn More</button>
             </div>
-          </div> */}
+          </div>
+          <div className="card">
+            <img src={poor} alt="Card 1" className="card-image" />
+            <div className="card-content">
+              <h3>Card Title 1</h3>
+              <p>Brief description for card 1 goes here.</p>
+              <button className="learn-more-btn">Learn More</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
