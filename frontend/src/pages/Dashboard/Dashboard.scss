@@ -71,11 +71,10 @@ $padding: 0px 150px;
     padding: $padding;
     margin-bottom: 80px;
 
-    .heading {
-      display: flex;
-      justify-content: center;
+     h1{
       text-align: center;
-    }
+      font-weight: 400;
+     }
 
     .cards-container {
       display: flex;
@@ -89,7 +88,7 @@ $padding: 0px 150px;
         border: 1px solid #ddd;
         border-radius: 8px;
         overflow: hidden;
-        width: 350px;
+        width: 320px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         text-align: center;
 
