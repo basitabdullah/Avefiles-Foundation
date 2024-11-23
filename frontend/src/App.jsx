@@ -22,6 +22,7 @@ import Success from "./pages/Success/Success";
 import Cancel from "./pages/Cancel/Cancel";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import ProductDescription from "./pages/ProductDescription/ProductDescription";
+import Services from "./pages/Services/Services";
 const App = () => {
   const { user, checkAuth,checkingAuth } = useUserStore();
   const { getCartItems } = useCartStore();
@@ -66,6 +67,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/purchase-success" element={<Success />} />
         <Route path="/purchase-cancel" element={<Cancel />} />
+        <Route path="/services/:id" element={<Services />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -5,6 +5,7 @@ import poor from "../../assets/poor.jpg";
 import MetaData from "../../components/MetaData";
 import { toast } from "react-hot-toast";
 import axios from "../../lib/axios";
+import { Link } from "react-router-dom";
 const Dashboard = () => {
   const [email, setEmail] = useState();
   const [name, setName] = useState();
@@ -35,11 +36,10 @@ const Dashboard = () => {
             We are dedicated to creating meaningful change in the lives of those
             who need it most. Our mission is to empower communities through
             impactful initiatives, providing resources and opportunities for a
-            brighter future.
-            We are dedicated to creating meaningful change in the lives of those
-            who need it most. Our mission is to empower communities through
-            impactful initiatives, providing resources and opportunities for a
-            brighter future.
+            brighter future. We are dedicated to creating meaningful change in
+            the lives of those who need it most. Our mission is to empower
+            communities through impactful initiatives, providing resources and
+            opportunities for a brighter future.
           </p>
 
           <button className="donate-btn">Donate Now</button>
@@ -64,28 +64,11 @@ const Dashboard = () => {
             <div className="card-content">
               <h3>Card Title 1</h3>
               <p>Brief description for card 1 goes here.</p>
-              <button className="learn-more-btn">Learn More</button>
+              <Link to="/services/123" className="learn-more-btn">
+                Learn More
+              </Link>
             </div>
           </div>
-
-          <div className="card">
-            <img src={poor} alt="Card 1" className="card-image" />
-            <div className="card-content">
-              <h3>Card Title 1</h3>
-              <p>Brief description for card 1 goes here.</p>
-              <button className="learn-more-btn">Learn More</button>
-            </div>
-          </div>
-
-          <div className="card">
-            <img src={poor} alt="Card 1" className="card-image" />
-            <div className="card-content">
-              <h3>Card Title 1</h3>
-              <p>Brief description for card 1 goes here.</p>
-              <button className="learn-more-btn">Learn More</button>
-            </div>
-          </div>
-          
         </div>
       </div>
 
