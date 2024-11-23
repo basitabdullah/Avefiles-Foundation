@@ -5,6 +5,7 @@ import poor from "../../assets/poor.jpg";
 import MetaData from "../../components/MetaData";
 import { toast } from "react-hot-toast";
 import axios from "../../lib/axios";
+import { Link } from "react-router-dom";
 const Dashboard = () => {
   const [email, setEmail] = useState();
   const [name, setName] = useState();
@@ -122,7 +123,9 @@ const Dashboard = () => {
             <div className="card-content">
               <h3>Card Title 1</h3>
               <p>Brief description for card 1 goes here.</p>
-              <button className="learn-more-btn">Learn More</button>
+              <Link to="/services/123" className="learn-more-btn">
+                Learn More
+              </Link>
             </div>
           </div>
         </div>
