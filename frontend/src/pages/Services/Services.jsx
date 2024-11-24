@@ -4,9 +4,9 @@ import "./Services.scss";
 const Services = () => {
   return (
     <div className="services">
-      <div className="image-container">
+      {/* <div className="image-container">
         <img src="" alt="err" />
-      </div>
+      </div> */}
       <div className="services-container">
         <div className="service reverse">
           <div className="number">01</div>

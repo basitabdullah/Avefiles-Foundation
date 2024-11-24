@@ -118,16 +118,21 @@ const Dashboard = () => {
       <div className="section-two">
         <h1>Our Services</h1>
         <div className="cards-container">
-          <div className="card">
-            <img src={poor} alt="Card 1" className="card-image" />
-            <div className="card-content">
-              <h3>Card Title 1</h3>
-              <p>Brief description for card 1 goes here.</p>
-              <Link to="/services/123" className="learn-more-btn">
-                Learn More
-              </Link>
+          {cardData.map((i) => (
+            <div className="card" key={i.id}>
+              <img src={i.image} alt="Card 1" className="card-image" />
+              <div className="card-content">
+                <h3>{i.title}</h3>
+                <p>{i.desc}</p>
+                <Link
+                  to={`/services/${i.id.toString()}`}
+                  className="learn-more-btn"
+                >
+                  Learn More
+                </Link>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
 
