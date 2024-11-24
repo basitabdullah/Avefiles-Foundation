@@ -11,7 +11,9 @@ const Services = () => {
         <div className="service reverse">
           <div className="number">01</div>
           <div className="description">
-            <h1>Rsearch And Analyse</h1>
+            <h1>Research And Analyse</h1>
+            <hr />
+
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
               asperiores vel numquam a possimus eius aliquam veritatis pariatur
@@ -24,6 +26,7 @@ const Services = () => {
           <div className="number">02</div>
           <div className="description">
             <h1>Steal And Kill</h1>
+            <hr />
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
               asperiores vel numquam a possimus eius aliquam veritatis pariatur
