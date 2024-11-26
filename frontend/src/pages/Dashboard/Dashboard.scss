@@ -71,10 +71,10 @@ $padding: 0px 150px;
     padding: $padding;
     margin-bottom: 80px;
 
-     h1{
+    h1 {
       text-align: center;
       font-weight: 400;
-     }
+    }
 
     .cards-container {
       display: flex;
@@ -86,11 +86,15 @@ $padding: 0px 150px;
       .card {
         background-color: #fff;
         border: 1px solid #ddd;
-        border-radius: 8px;
+        border-radius: 30px;
         overflow: hidden;
         width: 320px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
+        min-height: 450px;
+        transition: all 0.3s ease;
+        &:hover {
+          scale: 1.05;
+        }
 
         .card-image {
           width: 100%;
@@ -100,6 +104,9 @@ $padding: 0px 150px;
 
         .card-content {
           padding: 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
 
           h3 {
             font-size: 1.5rem;
@@ -111,20 +118,39 @@ $padding: 0px 150px;
             font-size: 1rem;
             color: #666;
             margin: 0 0 16px;
+            overflow: hidden;
+            display: -webkit-box; // Vendor-prefixed for WebKit browsers
+            display: box; // Standard property fallback
+            -webkit-line-clamp: 3; // Vendor-prefixed for WebKit browsers
+            line-clamp: 3; // Standard property
+            -webkit-box-orient: vertical; // Vendor-prefixed
+            box-orient: vertical; // Standard property fallback
           }
 
-          .learn-more-btn {
-            background-color: #000; // Button color
-            color: #fff;
+          .learn-more {
+            color: #4a95c0;
             border: none;
             border-radius: 4px;
-            padding: 10px 20px;
             font-size: 1rem;
             cursor: pointer;
             transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+
+            svg {
+              font-size: 20px;.alert{
+                width: 50vw;
+                text-align: center;
+              
+                >span{
+                  color: red;
+                  font-weight: 600;
+                }
+              }
+            }
 
             &:hover {
-              background-color: gray; // Darker shade on hover
+              color: #666; // Darker shade on hover
             }
           }
         }
@@ -147,11 +173,13 @@ $padding: 0px 150px;
 
     .overlay-text {
       position: absolute;
-      top: 50%;
+      top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
-      color: white; // Adjust text color
+      color: rgb(31, 31, 31); // Adjust text color
       text-align: center;
+      background-color: #fff;
+      padding: 5px 40px;
 
       h1 {
         font-size: 2.5rem; // Adjust heading size
@@ -161,7 +189,6 @@ $padding: 0px 150px;
 
       p {
         font-size: 1.2rem; // Adjust paragraph size
-        margin: 10px 0 0;
       }
     }
   }

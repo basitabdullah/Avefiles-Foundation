@@ -1,6 +1,7 @@
 import {Coupon} from "../models/couponModel.js";
 import Order from "../models/orderModel.js";
 import { stripe } from "../lib/stripe.js";
+import { razorpayInstance } from "../server.js";
 
 export const createCheckoutSession = async (req, res) => {
 	try {
@@ -143,4 +144,17 @@ async function createNewCoupon(userId) {
 
 	return newCoupon;	
 
+}
+
+
+
+export const checkout = async(req,res)=>{
+	const options = {
+		amount: 50000,
+		currency: "INR",
+	}
+
+	const order = await razorpayInstance.orders.create(options);
+	console.log(order);
+	
 }

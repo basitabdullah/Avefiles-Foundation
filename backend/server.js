@@ -10,6 +10,7 @@ import paymentRoutes from "./routes/paymentRoutes.js";
 import analyticsRoutes from "./routes/analyticsRoutes.js";
 import { contact } from "./controllers/contactController.js";
 import dotenv from "dotenv";
+import Razorpay from "razorpay";
 // import path from "path";
 const app = express();
 dotenv.config();
@@ -30,6 +31,14 @@ const corsOptions = {
   credentials: true, // Enable credentials (cookies, auth headers)
 };
 app.use(cors(corsOptions));
+
+
+
+export const razorpayInstance = new Razorpay({
+  key_id: process.env.RAZOR_PAY_KEY,
+  key_secret: process.env.RAZOR_PAY_SECRET,
+})
+
 
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());

@@ -6,6 +6,7 @@ import MetaData from "../../components/MetaData";
 import { toast } from "react-hot-toast";
 import axios from "../../lib/axios";
 import { Link } from "react-router-dom";
+import { MdKeyboardArrowRight } from "react-icons/md";
 const Dashboard = () => {
   const [email, setEmail] = useState();
   const [name, setName] = useState();
@@ -34,7 +35,7 @@ const Dashboard = () => {
       image:
         "https://images.unsplash.com/photo-1562564055-71e051d33c19?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
-    {
+    { 
       id: 4,
       title: "Buisness Modal and Financial Planing",
       desc: "Business models and financial planning align strategies with goals, ensuring sustainability, profitability, and informed decision-making for growth.",
@@ -126,9 +127,9 @@ const Dashboard = () => {
                 <p>{i.desc}</p>
                 <Link
                   to={`/services/${i.id.toString()}`}
-                  className="learn-more-btn"
+                  className="learn-more"
                 >
-                  Learn More
+                  Learn More <MdKeyboardArrowRight />
                 </Link>
               </div>
             </div>
