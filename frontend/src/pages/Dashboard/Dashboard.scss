@@ -71,10 +71,10 @@ $padding: 0px 150px;
     padding: $padding;
     margin-bottom: 80px;
 
-     h1{
+    h1 {
       text-align: center;
       font-weight: 400;
-     }
+    }
 
     .cards-container {
       display: flex;
@@ -90,7 +90,7 @@ $padding: 0px 150px;
         overflow: hidden;
         width: 320px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
+        min-height: 500px;
 
         .card-image {
           width: 100%;
@@ -99,7 +99,12 @@ $padding: 0px 150px;
         }
 
         .card-content {
-          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 10px;
+          gap: 10px;
+          height: 100%;
 
           h3 {
             font-size: 1.5rem;

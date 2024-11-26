@@ -1,0 +1,202 @@
+[
+  {
+    "mainTitle": "Idea Concept and dev",
+    "mainImage": "https://images.unsplash.com/photo-1654618977232-a6c6dea9d1e8?q=80&w=1372&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "mainDesc": "Ideas inspire innovation; web development turns them into interactive experiences, blending creativity, technology, and functionality to solve problems.",
+    "pointOne": {
+      "title": "Idea Generation",
+      "desc": "Transforming raw concepts into actionable and innovative ideas.",
+      "image": "https://images.unsplash.com/photo-1623303647440-967d26b95b47?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aWRlYSUyMGdlbmVyYXRpb258ZW58MHx8MHx8fDA%3D"
+    },
+    "pointTwo": {
+      "title": "Concept Validation",
+      "desc": "Testing and refining ideas to align with user needs and business goals.",
+      "image": "https://images.unsplash.com/photo-1595450547833-95af46d7c43a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29uY2VwdHxlbnwwfHwwfHx8MA%3D%3D"
+    },
+    "pointThree": {
+      "title": "Prototyping",
+      "desc": "Creating mockups to visualize and iterate on the concept.",
+      "image": "https://images.unsplash.com/photo-1576153192396-180ecef2a715?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHJvdG90eXBpbmd8ZW58MHx8MHx8fDA%3D"
+    },
+    "pointFour": {
+      "title": "Planning Execution",
+      "desc": "Outlining steps for effective implementation.",
+      "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGxhbiUyMGV4ZWN1dGlvbnxlbnwwfHwwfHx8MA%3D%3D"
+    }
+  },
+  {
+    "mainTitle": "Branding And Identity creations",
+    "mainImage": "https://images.unsplash.com/photo-1661956600684-97d3a4320e45?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "mainDesc": "Branding shapes identity; strategy ensures direction, helping businesses achieve their goals.",
+    "pointOne": {
+      "title": "Logo Design",
+      "desc": "Creating a unique visual symbol for the brand.",
+      "image": "https://images.unsplash.com/photo-1655213675468-19558613ff75?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bG9nbyUyMGRlc2lnbnxlbnwwfHwwfHx8MA%3D%3D"
+    },
+    "pointTwo": {
+      "title": "Brand Guidelines",
+      "desc": "Defining standards for consistent brand representation.",
+      "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGJyYW5kJTIwZ3VpZGxpbmVzfGVufDB8fDB8fHww"
+    },
+    "pointThree": {
+      "title": "Visual Identity",
+      "desc": "Developing design elements that reflect the brand's essence.",
+      "image": "https://images.unsplash.com/photo-1668548700708-42d9b641344e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHZpc3VhbCUyMGlkZW50aXR5fGVufDB8fDB8fHww"
+    },
+    "pointFour": {
+      "title": "Brand Story",
+      "desc": "Crafting a compelling narrative to connect with audiences.",
+      "image": "https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGJyYW5kJTIwc3Rvcnl8ZW58MHx8MHx8fDA%3D"
+    }
+  },
+  {
+    "mainTitle": "Buisness registration and legal support",
+    "mainImage": "https://images.unsplash.com/photo-1562564055-71e051d33c19?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "mainDesc": "Facilitating the formal establishment and compliance of businesses.",
+    "pointOne": {
+      "title": "Business Name Registration",
+      "desc": "Ensuring legal protection and identity for the business.",
+      "image": "https://images.unsplash.com/photo-1674471361339-8289b8346cb5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YnVpc25lc3MlMjBuYW1lJTIwcmVnaXN0cmF0aW9ufGVufDB8fDB8fHww"
+    },
+    "pointTwo": {
+      "title": "License Acquisition",
+      "desc": "Securing necessary permits and certifications.",
+      "image": "https://images.unsplash.com/photo-1562412692-26406e1bf600?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGxpY2Vuc2UlMjBhcXVzaXRpb258ZW58MHx8MHx8fDA%3D"
+    },
+    "pointThree": {
+      "title": "Tax Compliance",
+      "desc": "Ensuring adherence to local tax regulations.",
+      "image": "https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dGF4JTIwY29tcGxpYW5jZXxlbnwwfHwwfHx8MA%3D%3D"
+    },
+    "pointFour": {
+      "title": "Legal Documentation",
+      "desc": "Preparing essential contracts and agreements.",
+      "image": "https://images.unsplash.com/photo-1505664194779-8beaceb93744?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bGVnYWwlMjBkb2N1bWVudGF0aW9ufGVufDB8fDB8fHww"
+    }
+  },
+  {
+    "mainTitle": "Buisness modal and financial planing",
+    "mainImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "mainDesc": "Strategizing financial and operational aspects for business success.",
+    "pointOne": {
+      "title": "Revenue Streams",
+      "desc": "Identifying and optimizing sources of income.",
+      "image": "https://images.unsplash.com/photo-1612198273689-b437f53152ca?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHJldmVudWV8ZW58MHx8MHx8fDA%3D"
+    },
+    "pointTwo": {
+      "title": "Cost Analysis",
+      "desc": "Evaluating expenses to ensure profitability.",
+      "image": "https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29zdCUyMGFuYWx5c2lzfGVufDB8fDB8fHww"
+    },
+    "pointThree": {
+      "title": "Market Research",
+      "desc": "Gathering data to understand industry trends.",
+      "image": "https://images.unsplash.com/photo-1560264418-c4445382edbc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWFya2V0JTIwcmVzZWFyY2h8ZW58MHx8MHx8fDA%3D"
+    },
+    "pointFour": {
+      "title": "Financial Projections",
+      "desc": "Forecasting growth and sustainability metrics.",
+      "image": "https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZmluYW5jaWFsJTIwcHJvamVjdGlvbnN8ZW58MHx8MHx8fDA%3D"
+    }
+  },
+  {
+    "mainTitle": "Technology setup",
+    "mainImage": "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "mainDesc": "Implementing the right technological infrastructure for growth.",
+    "pointOne": {
+      "title": "Website Development",
+      "desc": "Creating a professional online presence.",
+      "image": "https://images.unsplash.com/photo-1678690832324-67961a27ca92?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2Vic2l0ZSUyMGRldmVsb3BtZW50fGVufDB8fDB8fHww"
+    },
+    "pointTwo": {
+      "title": "System Integration",
+      "desc": "Connecting tools and platforms for efficiency.",
+      "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3lzdGVtJTIwaW50ZWdyYXRpb258ZW58MHx8MHx8fDA%3D"
+    },
+    "pointThree": {
+      "title": "IT Infrastructure",
+      "desc": "Setting up hardware and software for operations.",
+      "image": "https://images.unsplash.com/photo-1563884705074-7c8b15f16295?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fElUJTIwaW5mcmFzdHJ1Y3R1cmV8ZW58MHx8MHx8fDA%3D"
+    },
+    "pointFour": {
+      "title": "Security Systems",
+      "desc": "Implementing measures to protect data and assets.",
+      "image": "https://images.unsplash.com/photo-1558002038-1055907df827?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c2VjdXJpdHklMjBzeXN0ZW18ZW58MHx8MHx8fDA%3D"
+    }
+  },
+  {
+    "mainTitle": "Training and Capacity building",
+    "mainImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "mainDesc": "Empowering teams with the knowledge and skills to excel.",
+    "pointOne": {
+      "title": "Workshops",
+      "desc": "Conducting sessions to upskill employees.",
+      "image": "https://images.unsplash.com/photo-1558008258-3256797b43f3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdvcmtzaG9wc3xlbnwwfHwwfHx8MA%3D%3D"
+    },
+    "pointTwo": {
+      "title": "Leadership Training",
+      "desc": "Building effective management and leadership skills.",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGVhZGVyc2hpcCUyMHRyYWluaW5nfGVufDB8fDB8fHww"
+    },
+    "pointThree": {
+      "title": "Skill Development",
+      "desc": "Enhancing technical and professional expertise.",
+      "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2tpbGwlMjBkZXZlbG9wbWVudHxlbnwwfHwwfHx8MA%3D%3D"
+    },
+    "pointFour": {
+      "title": "Team Building",
+      "desc": "Fostering collaboration and communication within teams.",
+      "image": "https://images.unsplash.com/photo-1716703435453-a7733d600d68?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGVhbSUyMGJ1aWxkaW5nfGVufDB8fDB8fHww"
+    }
+  },
+  {
+    "mainTitle": "Funding and investment Support",
+    "mainImage": "https://images.unsplash.com/photo-1622186477895-f2af6a0f5a97?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "mainDesc": "Providing access to resources and support for financial growth.",
+    "pointOne": {
+      "title": "Investor Pitching",
+      "desc": "Creating compelling presentations for potential investors.",
+      "image": "https://images.unsplash.com/photo-1551135049-8a33b5883817?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aW52ZXN0b3IlMjBwaXRjaHxlbnwwfHwwfHx8MA%3D%3D"
+    },
+    "pointTwo": {
+      "title": "Grant Applications",
+      "desc": "Securing non-repayable funds for business growth.",
+      "image": "https://images.unsplash.com/photo-1611178673542-6277b00043bf?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXBwbGljYXRpb25zfGVufDB8fDB8fHww"
+    },
+    "pointThree": {
+      "title": "Loan Assistance",
+      "desc": "Helping with access to business loans.",
+      "image": "https://images.unsplash.com/photo-1603039078583-13468e835b01?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGxvYW4lMjBhc3Npc3RhbmNlfGVufDB8fDB8fHww"
+    },
+    "pointFour": {
+      "title": "Crowdfunding Strategies",
+      "desc": "Developing plans to raise capital through public contributions.",
+      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y3Jvd2QlMjBmdW5kaW5nfGVufDB8fDB8fHww"
+    }
+  },
+  {
+    "mainTitle": "Marketing Strategy and Material",
+    "mainImage": "https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "mainDesc": "Creating impactful strategies and content to promote businesses.",
+    "pointOne": {
+      "title": "Social Media Campaigns",
+      "desc": "Engaging audiences across popular platforms.",
+      "image": "https://images.unsplash.com/photo-1485811055483-1c09e64d4576?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHNvY2lhbCUyMG1lZGlhJTIwY2FtcGFpZ25zfGVufDB8fDB8fHww"
+    },
+    "pointTwo": {
+      "title": "Content Creation",
+      "desc": "Developing creative assets for brand promotion.",
+      "image": "https://images.unsplash.com/photo-1719937051058-63705ed35502?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxzZWFyY2h8MXx8Y29udGVudCUyMGNyZWF0aW9ufGVufDB8fDB8fHww"
+    },
+    "pointThree": {
+      "title": "SEO Optimization",
+      "desc": "Enhancing visibility on search engines.",
+      "image": "https://images.unsplash.com/flagged/photo-1556514767-5c270b96a005?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c2VvJTIwb3B0aW1pc2F0aW9ufGVufDB8fDB8fHww"
+    },
+    "pointFour": {
+      "title": "Promotional Materials",
+      "desc": "Designing flyers, brochures, and digital assets.",
+      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGJyYW5kJTIwcHJvbW90aW9ufGVufDB8fDB8fHww"
+    }
+  }
+]
