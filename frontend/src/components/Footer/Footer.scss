@@ -19,6 +19,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
     h4 {
       font-size: 27px;
       font-weight: 500;
@@ -29,9 +30,22 @@
   }
 
   .mid-footer {
+    gap: 25px;
+
+    .logo{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+    }
     h1 {
-      font-family: "Ephesis", cursive;
-      font-size: 47px;
+      // font-family: "Ephesis", cursive;
+      font-size: 30px;
       font-weight: 500;
     }
   }

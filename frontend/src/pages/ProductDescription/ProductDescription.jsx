@@ -2,10 +2,12 @@ import "./ProductDescription.scss";
 import {useParams} from "react-router-dom"
 import {useProductStore} from "../../stores/useProductStore"
 import { useEffect } from "react";
+import { useCartStore } from "../../stores/useCartStore";
 const ProductDescription = () => {
 
   const {id} = useParams()
   const {fetchSingleProduct,product} = useProductStore()
+  const {addToCart} = useCartStore()
 
   useEffect(() => {
     fetchSingleProduct(id)
@@ -28,10 +30,9 @@ const ProductDescription = () => {
             {product?.description}
           </p>
           <p className="note">
-            <span>Note:</span> All the amout you pay is going in our bank
-            account, so spend it wisely 👍
+            <span>Note:</span> Your entire payment contributes to making a difference: 50% supports our operations, while the remaining 50% is directly donated to those in need.
           </p>
-          <button>Add to cart</button>
+          <button onClick={()=>addToCart(product)}>Add to cart</button>
         </div>
       </div>
     </div>

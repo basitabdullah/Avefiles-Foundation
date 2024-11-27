@@ -1,9 +1,10 @@
+$padding: 0px 150px;
+
 .dashboard {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
-  padding: 80px 150px;
   min-height: 100vh;
   gap: 50px;
 
@@ -13,13 +14,15 @@
     height: 400px;
     width: 100%;
     gap: 20px;
+    padding: $padding;
+    margin: 40px 0;
 
     .left {
       width: 50%;
       height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: space-around;
 
       h1 {
         font-size: 35px;
@@ -39,6 +42,7 @@
       align-items: center;
       justify-content: center;
       height: 480px;
+
       img {
         width: 100%;
         height: 100%;
@@ -58,49 +62,221 @@
       font-size: 20px;
     }
   }
-  .what-we-do {
+
+  .section-two {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    padding: $padding;
+    margin-bottom: 80px;
 
-    .card {
-      background-color: #ffffff;
-      border: 1px solid #e0e0e0;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-      flex: 1;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+    h1 {
       text-align: center;
-      transition: transform 0.3s ease;
+      font-weight: 400;
+    }
 
-      &:hover {
-        transform: translateY(-10px);
-      }
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
 
-      .card-image {
-        width: 100%;
-        height: 150px;
-        object-fit: cover;
-      }
-
-      .card-content {
-        padding: 15px;
-
-        .card-title {
-          font-size: 18px;
-          font-weight: bold;
-          color: #333333;
-          margin-bottom: 10px;
+      .card {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 30px;
+        overflow: hidden;
+        width: 320px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        min-height: 450px;
+        transition: all 0.3s ease;
+        &:hover {
+          scale: 1.05;
         }
 
-        .card-description {
-          font-size: 14px;
-          color: #666666;
-          margin: 0;
+        .card-image {
+          width: 100%;
+          height: 200px; // Fixed height for images
+          object-fit: cover; // Ensures the image fits nicely
+        }
+
+        .card-content {
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          h3 {
+            font-size: 1.5rem;
+            margin: 0 0 10px;
+            font-weight: 400;
+          }
+
+          p {
+            font-size: 1rem;
+            color: #666;
+            margin: 0 0 16px;
+            overflow: hidden;
+            display: -webkit-box; // Vendor-prefixed for WebKit browsers
+            display: box; // Standard property fallback
+            -webkit-line-clamp: 3; // Vendor-prefixed for WebKit browsers
+            line-clamp: 3; // Standard property
+            -webkit-box-orient: vertical; // Vendor-prefixed
+            box-orient: vertical; // Standard property fallback
+          }
+
+          .learn-more {
+            color: #4a95c0;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+
+            svg {
+              font-size: 20px;
+              .alert {
+                width: 50vw;
+                text-align: center;
+
+                > span {
+                  color: red;
+                  font-weight: 600;
+                }
+              }
+            }
+
+            &:hover {
+              color: #666; // Darker shade on hover
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .full-width-image {
+    position: relative;
+    width: 100%;
+    height: 60vh; // Adjust height as needed
+    margin-bottom: 40px;
+
+    .background-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // Ensures the image covers the entire area
+      display: block;
+    }
+
+    .overlay-text {
+      position: absolute;
+      top: 60%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: rgb(31, 31, 31); // Adjust text color
+      text-align: center;
+      background-color: #fff;
+      padding: 5px 40px;
+
+      h1 {
+        font-size: 2.5rem; // Adjust heading size
+        margin: 0;
+        font-weight: 300;
+      }
+
+      p {
+        font-size: 1.2rem; // Adjust paragraph size
+      }
+    }
+  }
+
+  .contact-us {
+    height: 50vh;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h2 {
+      font-weight: 500;
+      font-size: 30px;
+      margin-bottom: 20px;
+
+      @media (max-width: 385px) {
+        font-size: 25px;
+      }
+    }
+
+    p {
+      font-size: 20px;
+      font-weight: 300;
+      margin-bottom: 20px;
+      max-width: 700px;
+      text-align: center;
+
+      @media (max-width: 385px) {
+        font-size: 15px;
+      }
+    }
+
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      gap: 20px;
+
+      @media (max-width: 445px) {
+        width: 100%;
+        padding: 10px;
+      }
+
+      .name-email-wrapper {
+        display: flex;
+        gap: 20px;
+
+        @media (max-width: 662px) {
+          flex-direction: column;
+        }
+
+        input {
+          width: 100%;
+          font-size: 16px;
+          padding: 5px;
+          outline: none;
+          border-radius: 0%;
+          border: none;
+          border-bottom: 3px solid rgb(0, 0, 0);
+        }
+      }
+
+      textarea {
+        font-size: 16px;
+        padding: 5px;
+        outline: none;
+        border-radius: 0%;
+        border: none;
+        resize: none;
+      }
+
+      button {
+        padding: 5px;
+        background-color: black;
+        border: 1px solid white;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.45s ease;
+        border-radius: 0%;
+
+        &:hover {
+          background-color: white;
+          color: black;
+          border: 1px solid black;
         }
       }
     }

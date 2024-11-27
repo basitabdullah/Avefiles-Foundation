@@ -3,11 +3,11 @@ import "./About.scss";
 import { BsTwitterX } from "react-icons/bs";
 import { FaLinkedin } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
-import MetaData from "../../components/MetaData"
+import MetaData from "../../components/MetaData";
 const About = () => {
   return (
     <div className="about">
-      <MetaData title={"Meteor | About"} />
+      <MetaData title={"Avefiles | About"} />
 
       <div className="about-sec-one">
         <div className="text-portion">
@@ -41,7 +41,12 @@ const About = () => {
         </div>
 
         <div className="paragraph">
-          <p>Fahim Abdullah is a skilled web developer with expertise in React, Firebase, MERN stack, and full-stack development. He creates visually appealing, responsive applications while actively seeking jobs to enhance his programming skills.</p>
+          <p>
+            Fahim Abdullah is a skilled web developer with expertise in React,
+            Firebase, MERN stack, and full-stack development. He creates
+            visually appealing, responsive applications while actively seeking
+            jobs to enhance his programming skills.
+          </p>
         </div>
       </div>
     </div>

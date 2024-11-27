@@ -19,21 +19,18 @@ const Search = () => {
   const isNextPage = page < 4;
   const categories = [
     {
-      cat: "men",
-      name: "Men",
+      cat: "stationary",
+      name: "Stationary",
     },
     {
-      cat: "women",
-      name: "Women",
+      cat: "apperal",
+      name: "Apperal",
     },
     {
-      cat: "kids",
-      name: "Kids",
+      cat: "bio-degradable",
+      name: "Bio Degradable",
     },
-    {
-      cat: "socks",
-      name: "Socks",
-    },
+  
   ];
 
   useEffect(() => {
@@ -51,7 +48,7 @@ const Search = () => {
       transition={{ duration: 0.8 }}
       className="search"
     >
-      <MetaData title={"Meteor | Products-Search"} />
+      <MetaData title={"Avefiles | Products-Search"} />
 
       <div className="filters">
         <h4>Filters</h4>
@@ -64,14 +61,13 @@ const Search = () => {
         <label>Max price : {maxprice || ""}</label>
         <input
           value={maxprice}
-          min={120}
+          min={10}
           max={500}
           type="range"
           onChange={(e) => setMaxprice(Number(e.target.value))}
         />
         <label>Category</label>
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
-          <option>All</option>
           {categories?.map((i) => (
             <option value={i.cat} key={i.cat}>
               {i.name}

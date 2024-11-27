@@ -23,6 +23,10 @@
       justify-content: space-around;
       gap: 30px;
 
+      h1{
+        font-weight: 400;
+      }
+
       .price{
         font-size: 25px;
         color: gray;
@@ -33,6 +37,7 @@
         width: 400px; 
       }
       .note{
+        width: 500px;
         span{
             color: red;
         }
