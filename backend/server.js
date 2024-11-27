@@ -9,6 +9,7 @@ import couponRoutes from "./routes/couponRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
 import analyticsRoutes from "./routes/analyticsRoutes.js";
 import { contact } from "./controllers/contactController.js";
+import servicesRoutes from "./routes/servicesRoutes.js";
 import dotenv from "dotenv";
 import Razorpay from "razorpay";
 // import path from "path";
@@ -43,6 +44,7 @@ export const razorpayInstance = new Razorpay({
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
+app.use("/api/services", servicesRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/coupon", couponRoutes);
