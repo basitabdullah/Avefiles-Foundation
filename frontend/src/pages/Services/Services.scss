@@ -14,7 +14,7 @@
     justify-content: center;
     flex-direction: column;
     height: 100%;
-
+   
     .service {
       display: flex;
       justify-content: center;
@@ -38,8 +38,9 @@
 
       .description {
         display: flex;
-        align-items: center;
         flex-direction: column;
+        width: 500px;
+
         h1 {
           font-weight: 400;
           width: 100%;
@@ -51,16 +52,15 @@
           align-self: flex-start;
         }
         p {
-          width: 300px;
-          font-size: 15px;
           color: gray;
           margin-top: 10px;
         }
       }
+    }
 
-      &.reverse {
-        flex-direction: row-reverse;
-      }
+    .service:nth-child(odd) {
+      flex-direction: row-reverse;
+     
     }
   }
 }
