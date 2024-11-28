@@ -1,39 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Services.scss";
+import { useUserStore } from "../../stores/useUserStore";
+import { useParams } from "react-router-dom";
 
 const Services = () => {
+  const { id } = useParams();
+  const { fetchSingleService, singleService } = useUserStore();
+  useEffect(() => {
+    fetchSingleService(id);
+  }, [id]);
+  console.log(singleService);
+
   return (
     <div className="services">
       {/* <div className="image-container">
         <img src="" alt="err" />
       </div> */}
+      {/* 
+      number from 1-4 
+      classname => service and service reverse
+      
+      
+      */}
+
       <div className="services-container">
-        <div className="service reverse">
-          <div className="number">01</div>
-          <div className="description">
-            <h1>Research And Analyse</h1>
-            <hr />
+        {singleService?.points.map((point) => (
+          <div className="service" key={Math.floor(Math.random() * 100)}>
+            <div
+              className="number"
+              style={{
+                backgroundImage: `url(${point.image})`,
+              }}
+            >
+              {`0${point.number}`}
+            </div>
+            <div className="description">
+              <h1>{point.title}</h1>
+              <hr />
 
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
-              asperiores vel numquam a possimus eius aliquam veritatis pariatur
-              dolore quia.
-            </p>
+              <p>{point.desc}</p>
+            </div>
           </div>
-        </div>
-
-        <div className="service">
-          <div className="number">02</div>
-          <div className="description">
-            <h1>Steal And Kill</h1>
-            <hr />
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
-              asperiores vel numquam a possimus eius aliquam veritatis pariatur
-              dolore quia.
-            </p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

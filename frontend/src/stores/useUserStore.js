@@ -5,6 +5,8 @@ export const useUserStore = create((set, get) => ({
   user: null,
   loading: false,
   checkingAuth: true,
+  services: null,
+  singleService : null,
 
   signup: async ({ name, email, password, confirmPassword }) => {
     set({ loading: true });
@@ -61,6 +63,28 @@ export const useUserStore = create((set, get) => ({
     } catch (error) {
       set({ user: null, checkingAuth: false });
       toast.error(error.response.message || "An unexpected error occured");
+    }
+  },
+
+  fetchServices: async () => {
+    set({ loading: true });
+    try {
+      const res = await axios.get("/services");
+      set({ services: res.data, loading: false });
+    } catch (error) {
+      set({ services: null, loading: false });
+      toast.error(error.response.data.message || "An unexpected error occured");
+    }
+  },
+
+  fetchSingleService: async (id) => {
+    set({ loading: true });
+    try {
+      const res = await axios.get(`/services/${id}`);
+      set({ singleService: res.data, loading: false });
+    } catch (error) {
+      set({ singleService: null, loading: false });
+      toast.error(error.response.data.message || "An unexpected error occured");
     }
   },
 }));
