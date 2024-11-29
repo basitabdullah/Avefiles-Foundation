@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Dashboard.scss";
+import "./Home.scss";
 import image from "../../assets/photo.jpg";
 import poor from "../../assets/poor.jpg";
 import MetaData from "../../components/MetaData";
@@ -8,7 +8,7 @@ import axios from "../../lib/axios";
 import { Link } from "react-router-dom";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { useUserStore } from "../../stores/useUserStore";
-const Dashboard = () => {
+const Home = () => {
   const [email, setEmail] = useState();
   const [name, setName] = useState();
   const [message, setMessage] = useState();
@@ -36,7 +36,7 @@ const Dashboard = () => {
   console.log(services);
 
   return (
-    <div className="dashboard">
+    <div className="home">
       <MetaData title={"Avefiles | Home"} />
       <div className="section-one">
         <div className="left">
@@ -65,7 +65,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <div className="section-two">
+      <div className="section-two" id="services">
         <h1>Our Services</h1>
         <div className="cards-container">
           {services?.map((i) => (
@@ -115,4 +115,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Home;
