@@ -13,15 +13,15 @@ const Services = () => {
 
   return (
     <div className="services">
-      {/* <div className="image-container">
-        <img src="" alt="err" />
-      </div> */}
-      {/* 
-      number from 1-4 
-      classname => service and service reverse
+      <div className="image-container">
+        <img src={singleService?.mainImage} alt="err" />
+
+        <div className="text">
+          <h1>{singleService?.mainTitle}</h1>
+          <p>{singleService?.mainDesc}</p>
+        </div>
+      </div>
       
-      
-      */}
 
       <div className="services-container">
         {singleService?.points.map((point) => (

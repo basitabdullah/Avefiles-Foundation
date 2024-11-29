@@ -20,7 +20,7 @@ import Loader from "./components/Loaders/maxLoader/Loader";
 import { useCartStore } from "./stores/useCartStore";
 import Success from "./pages/Success/Success";
 import Cancel from "./pages/Cancel/Cancel";
-import Dashboard from "./pages/Dashboard/Dashboard";
+import Home from "./pages/Home/Home";
 import ProductDescription from "./pages/ProductDescription/ProductDescription";
 import Services from "./pages/Services/Services";
 const App = () => {
@@ -47,8 +47,8 @@ const App = () => {
       <Toaster />
       <ScrollToTop />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/" element={<Dashboard />} />
         <Route
           path="/login"
           element={user ? <Navigate to="/"/> : <Login/>  }

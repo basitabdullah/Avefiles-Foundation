@@ -16,28 +16,37 @@ const Navbar = () => {
   const itemsInCart = cart.length;
 
   const loaction = useLocation();
-
   useEffect(() => {
     setHamburgerMenu(false);
   }, [loaction]);
+  const getActiveClass = (path) =>
+    location.pathname === path ? "active-link" : "";
   return (
     <div className="navbar">
       <div className="left-sec">
-        <Link to={"/"}>
+        <Link to={"/"} className={getActiveClass("/")}>
           <p>Home</p>
         </Link>
-        <Link to={"/shop"}>
+        <Link to={"/shop"} className={getActiveClass("/shop")}>
           <p>Shop</p>
         </Link>
-        <Link to={"/search"}>
+        <Link to={"/search"} className={getActiveClass("/search")}>
           <p>PRODUCTS</p>
         </Link>
-        {/* <Link to={"/contact-us"}>
-          <p>CONTACT</p>
-        </Link> */}
-        <Link to={"/services"}>
-          <p>Services</p>
-        </Link>
+
+        {location.pathname === "/" && (
+          <Link
+            className={getActiveClass("/services")}
+            to="#services"
+            onClick={() =>
+              document
+                .getElementById("services")
+                .scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            <p>Services</p>
+          </Link>
+        )}
       </div>
       <Link to={"/"}>
         <div className="logo-wrapper">
@@ -48,7 +57,7 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="right-sec">
-        <Link to={"/about"}>
+        <Link to={"/about"} className={getActiveClass("/about")}>
           <p>ABOUT</p>
         </Link>
 
@@ -111,9 +120,7 @@ const Navbar = () => {
           <Link to={"/search"}>
             <p>PRODUCTS</p>
           </Link>
-          <Link to={"/contact-us"}>
-            <p>CONTACT</p>
-          </Link>
+          
           <Link to={"/about"}>
             <p>ABOUT</p>
           </Link>
