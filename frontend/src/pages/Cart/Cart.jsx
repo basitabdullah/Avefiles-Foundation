@@ -61,6 +61,48 @@ const Cart = () => {
     }
   };
 
+  const handleRazorpayPayment = async () => {
+    try {
+      const {
+        data: { key },
+      } = await axios.get("/payment/getkey");
+
+      const {
+        data: { order },
+      } = await axios.post("/payment/checkout", {
+        amount: total,
+      });
+      console.log(order);
+
+      const options = {
+        key,
+        amount: order.amount,
+        currency: "INR",
+        name: "New One",
+        description: "Test Transaction",
+        image:
+          "https://res.cloudinary.com/dfntxbbxh/image/upload/v1732510773/products/bys84mh75xibrxctbmdg.jpg",
+        order_id: order.id,
+        callback_url: "http://localhost:5000/api/payment/paymentverification",
+        prefill: {
+          name: "Gaurav Kumar",
+          email: "gaurav.kumar@example.com",
+          contact: "9000090000",
+        },
+        notes: {
+          address: "Razorpay Corporate Office",
+        },
+        theme: {
+          color: "#121212",
+        },
+      };
+      const razor = new window.Razorpay(options);
+      razor.open();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleApplyCoupon = async () => {
     if (!couponCode) return;
     validateCoupon(couponCode);
@@ -184,12 +226,10 @@ const Cart = () => {
                   No Coupon Applied
                 </span>
               ))}
-            {/* <Link to="/shipping"> */}
-            <button className="checkout-btn" onClick={handleStripePayment}>
+            <button className="checkout-btn" onClick={handleRazorpayPayment}>
               <MdAttachMoney />
               Checkout
             </button>
-            {/* </Link> */}
           </div>
         </>
       )}

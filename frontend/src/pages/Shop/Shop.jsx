@@ -7,17 +7,14 @@ import CarouselContainer from "../../components/CarouselContainer.jsx";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useProductStore } from "../../stores/useProductStore.js";
-import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import axios from "../../lib/axios.js";
+import { useEffect } from "react";
 import apperalsImg from "../../assets/categories-apperals.jpeg";
 import stationaryImg from "../../assets/categories-stationary.webp";
 import bioImg from "../../assets/categories-bio.jpeg";
+import Loader from "../../components/Loaders/maxLoader/Loader";
 
 const Shop = () => {
   const { getFeaturedProducts, products } = useProductStore();
-  
-
 
   useEffect(() => {
     getFeaturedProducts();
@@ -40,7 +37,9 @@ const Shop = () => {
       imageUrl: bioImg,
     },
   ];
-  return (
+  return !products ? (
+    <Loader />
+  ) : (
     <div className="shop">
       <MetaData title={"Avefiles | Shop"} />
       <Carousel
@@ -110,8 +109,6 @@ const Shop = () => {
           <Product product={product} key={product._id} />
         ))}
       </div>
-
-      
     </div>
   );
 };
