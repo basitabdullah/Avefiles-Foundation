@@ -1,0 +1,129 @@
+// Colors
+$primary-color: #000000;
+$heading-color: #2c3e50;
+$text-color: #5d6d7e;
+$background-color: #f8fafc;
+$accent-color: #ff6b6b;
+
+// Breakpoints
+$mobile: 576px;
+$tablet: 768px;
+$desktop: 1024px;
+
+.services {
+  padding: 8rem 2rem;
+  background-color: $background-color;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  &__tag {
+    display: inline-block;
+    background-color: rgba($accent-color, 0.1);
+    color: $accent-color;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  h2 {
+    color: $heading-color;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-weight: 400;
+  }
+
+  p {
+    color: $text-color;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+    margin: 0 auto;
+
+    @media (max-width: $tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+
+    .service-card__image img {
+      transform: scale(1.1);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+  }
+
+  .service-card__title {
+    color: $heading-color;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .service-card__description {
+    color: $text-color;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .service-card__button {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+
+    &:hover {
+      background-color: $primary-color, 10%;
+      transform: translateY(-2px);
+    }
+  }
+}

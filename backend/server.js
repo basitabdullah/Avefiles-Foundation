@@ -17,7 +17,6 @@ const app = express();
 dotenv.config();
 
 const __dirname = path.resolve();
-
 const corsOptions = {
   origin: process.env.CLIENT_URL, // Allow requests from the React app
   methods: "GET,POST,PUT,DELETE,PATCH", // Allow these HTTP methods

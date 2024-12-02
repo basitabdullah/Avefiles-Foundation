@@ -125,7 +125,6 @@ export const toggleFeaturedProducts = async (req, res) => {
       message: error.message,
     });
     console.log(error.message);
-    
   }
 };
 
@@ -193,7 +192,6 @@ export const searchProducts = async (req, res) => {
   }
 };
 
-
 export const getSingleProduct = async (req, res) => {
   try {
     const { id } = req.params;
@@ -209,4 +207,4 @@ export const getSingleProduct = async (req, res) => {
       message: error.message,
     });
   }
-} 
+};

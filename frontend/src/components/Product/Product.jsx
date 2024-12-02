@@ -9,7 +9,7 @@ const Product = ({ product }) => {
       <img src={product.image} alt="err" />
       <div className="details">
         <h2>{product.name}</h2>
-        <p>${product.price}</p>
+        <p>₹{product.price}</p>
         <div className="buttons">
         <button onClick={() => addToCart(product)}>Add to cart</button>
         <Link to={`/product-description/${product._id}`} >Details</Link>

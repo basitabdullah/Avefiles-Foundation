@@ -21,10 +21,12 @@
 
     .text {
       position: absolute;
-      left: 50px;
-      background-color: #ffffff8f;
+      left: 40px;
+      background-color: #ffffff3c;
+      border-radius: 20px;
+      backdrop-filter: blur(3px);
       color: rgb(0, 0, 0);
-      padding: 10px;
+      padding: 13px;
       min-height: 120px;
       @media (max-width: 590px) {
         width: 80%;

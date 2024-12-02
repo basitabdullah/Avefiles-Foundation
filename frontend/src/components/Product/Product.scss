@@ -71,12 +71,18 @@
     .buttons {
       display: flex;
       gap: 10px;
+      @media (max-width: 430px) {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+      }
 
       a {
-        padding: 5px;
+        padding: 8px;
         outline: none;
         border: none;
-        background-color: black;
+        background-color: rgb(63, 63, 63);
+        border-radius: 10px;
         color: white;
         transition: 0.45s ease;
         cursor: pointer;
@@ -89,12 +95,14 @@
         }
       }
       button {
-        padding: 5px;
+        padding: 8px;
         outline: none;
         border: none;
-        background-color: black;
+        background-color: rgb(63, 63, 63);
         color: white;
         transition: 0.45s ease;
+        border-radius: 10px;
+
         cursor: pointer;
         @media (max-width: 640px) {
           padding: 5px;

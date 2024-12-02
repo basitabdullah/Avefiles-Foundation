@@ -7,17 +7,14 @@ import CarouselContainer from "../../components/CarouselContainer.jsx";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useProductStore } from "../../stores/useProductStore.js";
-import { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import axios from "../../lib/axios.js";
+import { useEffect } from "react";
 import apperalsImg from "../../assets/categories-apperals.jpeg";
 import stationaryImg from "../../assets/categories-stationary.webp";
 import bioImg from "../../assets/categories-bio.jpeg";
+import Loader from "../../components/Loaders/maxLoader/Loader";
 
 const Shop = () => {
   const { getFeaturedProducts, products } = useProductStore();
-  
-
 
   useEffect(() => {
     getFeaturedProducts();
@@ -40,9 +37,16 @@ const Shop = () => {
       imageUrl: bioImg,
     },
   ];
-  return (
+  return !products ? (
+    <Loader />
+  ) : (
     <div className="shop">
       <MetaData title={"Avefiles | Shop"} />
+      <div className="note">
+        Your entire payment contributes to making a difference: 50% supports our
+        operations, while the remaining 50% is directly donated to those in
+        need.
+      </div>
       <Carousel
         showStatus={false}
         showThumbs={false}
@@ -53,21 +57,21 @@ const Shop = () => {
       >
         <CarouselContainer
           image={
-            "https://images.unsplash.com/photo-1604041362687-bbeedd4e63ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            "https://res.cloudinary.com/dfntxbbxh/image/upload/v1732987399/products/nspytm8xdaeyrd61ftbj.jpg"
           }
-          feature={"Poor"}
-          name={"Helping"}
+          name={"Bacta Serve"}
           desc={
-            "Shop for change, because every item tells a story of betterment."
+            "BactaServe Organic Kitchen Cleaner"
           }
         />
         <CarouselContainer
           image={
-            "https://images.unsplash.com/photo-1630868313487-7e20af009ad5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            "https://res.cloudinary.com/dfntxbbxh/image/upload/v1732987212/products/mu3ht8cji9zmdkylsyam.jpg"
           }
-          feature={"Needy "}
-          name={"Empowering"}
-          desc={"The new way to wear your favorite sneaker"}
+          name={"Bacta Serve"}
+          desc={
+            "BactaServe Organic Drain Cleaner"
+          }
         />
       </Carousel>
       <h2 id="categories" className="categories-heading">
@@ -80,7 +84,7 @@ const Shop = () => {
         className="categories"
       >
         {categories?.map((cat) => (
-          <Link to={`/category${cat.href}`} key={cat.name}>
+          <Link to={`/search`} key={cat.name}>
             <div className="category">
               <img src={cat.imageUrl} alt="err" loading="lazy" />
               <div className="category-title">{cat.name}</div>
@@ -110,8 +114,6 @@ const Shop = () => {
           <Product product={product} key={product._id} />
         ))}
       </div>
-
-      
     </div>
   );
 };

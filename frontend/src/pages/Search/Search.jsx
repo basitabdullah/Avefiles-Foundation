@@ -9,7 +9,7 @@ import Loader from "../../components/Loaders/minLoader/MinLoader.jsx";
 const Search = () => {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
-  const [maxprice, setMaxprice] = useState(120);
+  const [maxprice, setMaxprice] = useState(9999);
   const [category, setCategory] = useState("");
   const [page, setPage] = useState(1);
   const { loading, fetchAllProducts, products, searchProducts } =
@@ -18,6 +18,11 @@ const Search = () => {
   const isPrevPage = page > 1;
   const isNextPage = page < 4;
   const categories = [
+
+    {
+      cat: "",
+      name: "All",
+    },
     {
       cat: "stationary",
       name: "Stationary",
@@ -30,12 +35,12 @@ const Search = () => {
       cat: "bio-degradable",
       name: "Bio Degradable",
     },
-  
   ];
 
   useEffect(() => {
     fetchAllProducts();
   }, [fetchAllProducts]);
+  
 
   useEffect(() => {
     searchProducts(search, sort, maxprice, category);
@@ -61,12 +66,13 @@ const Search = () => {
         <label>Max price : {maxprice || ""}</label>
         <input
           value={maxprice}
-          min={10}
-          max={500}
+          min={100}
+          max={9999}
           type="range"
           onChange={(e) => setMaxprice(Number(e.target.value))}
         />
         <label>Category</label>
+
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
           {categories?.map((i) => (
             <option value={i.cat} key={i.cat}>

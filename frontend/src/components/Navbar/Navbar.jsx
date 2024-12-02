@@ -30,23 +30,15 @@ const Navbar = () => {
         <Link to={"/shop"} className={getActiveClass("/shop")}>
           <p>Shop</p>
         </Link>
-        <Link to={"/search"} className={getActiveClass("/search")}>
-          <p>PRODUCTS</p>
+
+        <Link to={"/services"} className={getActiveClass("/services")}>
+          <p>Services</p>
+        </Link>
+        <Link to={"/about"} className={getActiveClass("/about")}>
+          <p>ABOUT</p>
         </Link>
 
-        {location.pathname === "/" && (
-          <Link
-            className={getActiveClass("/services")}
-            to="#services"
-            onClick={() =>
-              document
-                .getElementById("services")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            <p>Services</p>
-          </Link>
-        )}
+      
       </div>
       <Link to={"/"}>
         <div className="logo-wrapper">
@@ -57,10 +49,6 @@ const Navbar = () => {
         </div>
       </Link>
       <div className="right-sec">
-        <Link to={"/about"} className={getActiveClass("/about")}>
-          <p>ABOUT</p>
-        </Link>
-
         <Link to={"/search"}>
           {" "}
           <IoSearchOutline />
@@ -117,16 +105,18 @@ const Navbar = () => {
 
       {hamburgerMenu && (
         <div className="hamburger-menu">
-          <Link to={"/search"}>
-            <p>PRODUCTS</p>
+          <Link to="/shop">
+            <p>SHOP</p>
           </Link>
-          
+
           <Link to={"/about"}>
             <p>ABOUT</p>
           </Link>
+
           <Link to="/login" className="login-icon">
             <p>LOGIN</p>
           </Link>
+
           {user && (
             <button className="logout-btn" onClick={logout}>
               Logout
