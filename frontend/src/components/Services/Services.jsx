@@ -10,7 +10,7 @@ const Services = () => {
       image: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description: 'Providing quality education to underprivileged children.',
       points: [
-        'Free primary education',
+        'Build visually appealing, responsive, and intuitive UI/UX designs using frameworks like React.js',
         'School supplies distribution',
         'Teacher training programs',
         'Digital learning initiatives'
