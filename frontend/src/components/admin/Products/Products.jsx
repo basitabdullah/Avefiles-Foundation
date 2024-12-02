@@ -47,7 +47,7 @@ const Products = () => {
                       </div>
                     </div>
                   </td>
-                  <td>${product.price}</td>
+                  <td>₹{product.price}</td>
                   <td>{product.category}</td>
                   <td>
                     <button className="featured-button" onClick={()=>toggleFeaturedProduct(product._id)}>

@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import "./Services.scss";
+import "./SingleService.scss";
 import { useUserStore } from "../../stores/useUserStore";
 import { useParams } from "react-router-dom";
 import Loader from "../../components/Loaders/maxLoader/Loader";
 
-const Services = () => {
+const SingleService = () => {
   const { id } = useParams();
   const { fetchSingleService, singleService } = useUserStore();
   useEffect(() => {
@@ -53,4 +53,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default SingleService;

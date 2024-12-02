@@ -163,7 +163,7 @@ const Cart = () => {
                   >
                     <IoCloseSharp />
                   </div>
-                  <div className="price">${item.price}</div>
+                  <div className="price">₹{item.price}</div>
                 </div>
               </div>
             ))}

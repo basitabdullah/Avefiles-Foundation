@@ -1,0 +1,39 @@
+.about-comp {
+  padding: 4rem 1rem;
+  background-color: white;
+
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+      color: #000;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .donate-button {
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      background-color: #000;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        background-color: #222;
+      }
+    }
+  }
+}

@@ -30,23 +30,15 @@ const Navbar = () => {
         <Link to={"/shop"} className={getActiveClass("/shop")}>
           <p>Shop</p>
         </Link>
+
+        <Link to={"/services"} className={getActiveClass("/services")}>
+          <p>Services</p>
+        </Link>
         <Link to={"/about"} className={getActiveClass("/about")}>
           <p>ABOUT</p>
         </Link>
 
-        {location.pathname === "/" && (
-          <Link
-            className={getActiveClass("/services")}
-            to="#services"
-            onClick={() =>
-              document
-                .getElementById("services")
-                .scrollIntoView({ behavior: "smooth" })
-            }
-          >
-            <p>Services</p>
-          </Link>
-        )}
+      
       </div>
       <Link to={"/"}>
         <div className="logo-wrapper">

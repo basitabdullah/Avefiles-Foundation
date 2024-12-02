@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const CarouselContainer = ({image,name,feature,desc}) => {
   return (
@@ -6,14 +7,11 @@ const CarouselContainer = ({image,name,feature,desc}) => {
           <div className="description">
             <div className="top">
               <p className="product-name">{name}</p>
-              <div className="product-feature">
-                <p className="classic">{feature}</p>
-                <p className="nature">by donation</p>
-              </div>
+              
             </div>
             <div className="bottom">
               <p>{desc}</p>
-              <a href="#categories" className="shop-now">Donate</a>
+              <Link  className="shop-now" to={"/search"}>Shop Now</Link>
             </div>
           </div>
         </div>

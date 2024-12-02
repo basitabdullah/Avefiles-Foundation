@@ -1,5 +1,9 @@
 $padding: 0px 150px;
-
+$primary-color: #000;
+$text-color: #333;
+$background-gradient: linear-gradient(135deg, #fff 0%, #f5f5f5 100%);
+$transition-speed: 0.3s;
+$border-radius: 12px;
 .home {
   display: flex;
   flex-direction: column;
@@ -7,317 +11,364 @@ $padding: 0px 150px;
   width: 100%;
   min-height: 100vh;
   gap: 50px;
+  background: $background-gradient;
+  // Hero Section
+  .hero {
+    margin: 0 auto;
+    padding: 2rem 1rem;
 
-  .section-one {
-    display: flex;
-    align-items: flex-start;
-    height: 400px;
-    width: 100%;
-    gap: 20px;
-    padding: $padding;
-    margin: 40px 0;
-    @media (max-width: 1086px) {
-      flex-direction: column-reverse;
-      height: 100%;
-    }
-
-    @media (max-width: 772px) {
-      padding: 30px;
-    }
-    .left {
-      width: 50%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      gap: 20px;
-      @media (max-width: 1086px) {
-        width: 100%;
-      }
-
-      h1 {
-        font-size: 35px;
-        font-weight: 400;
-      }
-
-      p {
-        max-width: 800px;
-        font-size: 20px;
-        font-weight: 300;
-      }
-
-      .donate-btn {
-        background-color: black;
-        color: white;
-        border-radius: 5px;
-        text-align: center;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-        width: 50%;
-        font-size: 20px;
-      }
-    }
-
-    .right {
-      width: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 480px;
-      @media (max-width: 1086px) {
-        width: 100%;
-      }
-      @media (max-width: 772px) {
-        height: 350px;
-      }
+    .hero-slide {
+      position: relative;
+      height: 400px;
 
       img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+        border-radius: $border-radius;
+      }
+
+      .slide-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 2rem;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        color: white;
+        border-radius: 0 0 $border-radius $border-radius;
+
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          font-size: 1.1rem;
+        }
       }
     }
   }
 
-  .section-two {
+  // About Section
+  .about {
+    padding: 4rem 1rem;
+    background-color: white;
+
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: $primary-color;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: $text-color;
+        margin-bottom: 2rem;
+      }
+
+      .donate-button {
+        padding: 1rem 2.5rem;
+        font-size: 1.2rem;
+        background-color: $primary-color;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background-color $transition-speed ease;
+
+        &:hover {
+          background-color: $primary-color, 15%;
+        }
+      }
+    }
+  }
+
+  // Services Section
+  .services {
+    padding: 4rem 1rem;
+    background-color: #f8f8f8;
+    text-align: center;
+    width: 100%;
+
+    h2 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      color: $primary-color;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      width: 80%;
+      margin: 0 auto 2rem;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: $border-radius;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      h3 {
+        padding: 1rem;
+        margin: 0;
+        font-size: 1.2rem;
+        color: $primary-color;
+      }
+    }
+
+    .see-more {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      background-color: transparent;
+      border: 2px solid $primary-color;
+      color: $primary-color;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 500;
+      transition: all $transition-speed ease;
+
+      &:hover {
+        background-color: $primary-color;
+        color: white;
+      }
+    }
+  }
+
+  // Contact Form
+  .contact-form {
+    padding: 4rem 1rem;
+    background-color: white;
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+
+      h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: $primary-color;
+      }
+
+      p {
+        text-align: center;
+        color: #666;
+        margin-bottom: 2rem;
+      }
+
+      form {
+        .form-group {
+          margin-bottom: 1.5rem;
+
+          label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: $text-color;
+            font-weight: 500;
+          }
+
+          input,
+          textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: $border-radius;
+            font-size: 1rem;
+            transition: border-color $transition-speed ease;
+
+            &:focus {
+              outline: none;
+              border-color: $primary-color;
+            }
+          }
+
+          textarea {
+            resize: vertical;
+            min-height: 120px;
+          }
+        }
+
+        button {
+          width: 100%;
+          padding: 1rem;
+          background-color: $primary-color;
+          color: white;
+          border: none;
+          border-radius: $border-radius;
+          font-size: 1.1rem;
+          cursor: pointer;
+          transition: background-color $transition-speed ease;
+
+          &:hover {
+            background-color: ($primary-color, 15%);
+          }
+        }
+      }
+    }
+  }
+
+  // Modal
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     justify-content: center;
-    flex-direction: column;
-    gap: 30px;
-    padding: $padding;
-    margin-bottom: 80px;
-    @media (max-width: 982px) {
-      padding: 30px;
+    align-items: center;
+    z-index: 1000;
+    padding: 1rem;
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: $border-radius;
+      max-width: 500px;
+      width: 100%;
+
+      h3 {
+        margin-top: 0;
+        font-size: 1.5rem;
+        color: $primary-color;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        color: $text-color;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      ul {
+        margin: 1.5rem 0;
+        padding-left: 1.5rem;
+
+        li {
+          margin-bottom: 0.5rem;
+          color: $text-color;
+        }
+      }
+
+      button {
+        background: $primary-color;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: $border-radius;
+        cursor: pointer;
+        font-size: 1rem;
+        width: 100%;
+
+        &:hover {
+          background: ($primary-color, 15%);
+        }
+      }
     }
 
-    h1 {
-      text-align: center;
-      font-weight: 400;
-    }
-
-    .cards-container {
+    .contact-us {
+      height: 50vh;
+      background-color: #f2f2f2;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 30px;
+      flex-direction: column;
 
-      .card {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 30px;
-        overflow: hidden;
-        width: 320px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        min-height: 430px;
-        transition: all 0.3s ease;
-        @media (max-width: 730px) {
-          width: 60%;
-          height: 430px;
-        }
+      h2 {
+        font-weight: 500;
+        font-size: 30px;
+        margin-bottom: 20px;
 
-        @media (max-width: 510px) {
-          width: 100%;
-          height: 430px;
-        }
-        &:hover {
-          scale: 1.05;
-        }
-
-        .card-image {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-        }
-
-        .card-content {
-          padding: 16px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-
-          h3 {
-            font-size: 1.5rem;
-            margin: 0 0 10px;
-            font-weight: 400;
-          }
-
-          p {
-            font-size: 1rem;
-            color: #666;
-            margin: 0 0 16px;
-            overflow: hidden;
-            display: -webkit-box; // Vendor-prefixed for WebKit browsers
-            display: box; // Standard property fallback
-            -webkit-line-clamp: 3; // Vendor-prefixed for WebKit browsers
-            line-clamp: 3; // Standard property
-            -webkit-box-orient: vertical; // Vendor-prefixed
-            box-orient: vertical; // Standard property fallback
-          }
-
-          .learn-more {
-            color: #4a95c0;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-
-            svg {
-              font-size: 20px;
-              .alert {
-                width: 50vw;
-                text-align: center;
-
-                > span {
-                  color: red;
-                  font-weight: 600;
-                }
-              }
-            }
-
-            &:hover {
-              color: #666; // Darker shade on hover
-            }
-          }
-        }
-      }
-    }
-  }
-
-  .full-width-image {
-    position: relative;
-    width: 100%;
-    height: 60vh; // Adjust height as needed
-    margin-bottom: 40px;
-
-    .background-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; // Ensures the image covers the entire area
-      display: block;
-    }
-
-    .overlay-text {
-      position: absolute;
-      top: 60%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: rgb(31, 31, 31); // Adjust text color
-      text-align: center;
-      background-color: #fff;
-      padding: 5px 40px;
-      @media (max-width: 900px) {
-        background-color: transparent;
-        color: white;
-      padding: 0px;
-
-      }
-
-      h1 {
-        font-size: 2.5rem; // Adjust heading size
-        margin: 0;
-        font-weight: 300;
-        @media (max-width: 622px) {
-          font-size: 1.5rem;
+        @media (max-width: 385px) {
+          font-size: 25px;
         }
       }
 
       p {
-        font-size: 1.2rem; // Adjust paragraph size
-        @media (max-width: 622px) {
-          font-size: 1rem;
+        font-size: 20px;
+        font-weight: 300;
+        margin-bottom: 20px;
+        max-width: 700px;
+        text-align: center;
+
+        @media (max-width: 385px) {
+          font-size: 15px;
         }
       }
-    }
-  }
 
-  .contact-us {
-    height: 50vh;
-    background-color: #f2f2f2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    h2 {
-      font-weight: 500;
-      font-size: 30px;
-      margin-bottom: 20px;
-
-      @media (max-width: 385px) {
-        font-size: 25px;
-      }
-    }
-
-    p {
-      font-size: 20px;
-      font-weight: 300;
-      margin-bottom: 20px;
-      max-width: 700px;
-      text-align: center;
-
-      @media (max-width: 385px) {
-        font-size: 15px;
-      }
-    }
-
-    .input-container {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-      gap: 20px;
-
-      @media (max-width: 445px) {
-        width: 100%;
-        padding: 10px;
-      }
-
-      .name-email-wrapper {
+      .input-container {
         display: flex;
+        flex-direction: column;
+        width: 50%;
         gap: 20px;
 
-        @media (max-width: 662px) {
-          flex-direction: column;
+        @media (max-width: 445px) {
+          width: 100%;
+          padding: 10px;
         }
 
-        input {
-          width: 100%;
+        .name-email-wrapper {
+          display: flex;
+          gap: 20px;
+
+          @media (max-width: 662px) {
+            flex-direction: column;
+          }
+
+          input {
+            width: 100%;
+            font-size: 16px;
+            padding: 5px;
+            outline: none;
+            border-radius: 0%;
+            border: none;
+            border-bottom: 3px solid rgb(0, 0, 0);
+          }
+        }
+
+        textarea {
           font-size: 16px;
           padding: 5px;
           outline: none;
           border-radius: 0%;
           border: none;
-          border-bottom: 3px solid rgb(0, 0, 0);
+          resize: none;
         }
-      }
 
-      textarea {
-        font-size: 16px;
-        padding: 5px;
-        outline: none;
-        border-radius: 0%;
-        border: none;
-        resize: none;
-      }
+        button {
+          padding: 5px;
+          background-color: black;
+          border: 1px solid white;
+          color: white;
+          font-size: 16px;
+          cursor: pointer;
+          transition: 0.45s ease;
+          border-radius: 0%;
 
-      button {
-        padding: 5px;
-        background-color: black;
-        border: 1px solid white;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.45s ease;
-        border-radius: 0%;
-
-        &:hover {
-          background-color: white;
-          color: black;
-          border: 1px solid black;
+          &:hover {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+          }
         }
       }
     }

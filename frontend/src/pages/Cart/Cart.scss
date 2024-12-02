@@ -156,7 +156,8 @@
         .product-recommended-wrapper{
           img{
             height: 200px;
-            object-fit: contain;
+            width: 200px;
+            object-fit: cover;
             margin-bottom: 20px;
           }
           .details{
@@ -175,6 +176,7 @@
              color: #fff;
              border: none;
              padding: 5px;
+             cursor: pointer;
             }
 
 
