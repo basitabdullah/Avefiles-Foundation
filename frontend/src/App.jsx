@@ -21,7 +21,7 @@ import Success from "./pages/Success/Success";
 import Cancel from "./pages/Cancel/Cancel";
 import Home from "./pages/Home/Home";
 import ProductDescription from "./pages/ProductDescription/ProductDescription";
-import SingleService from "./pages/SingleService/SingleService";
+// import SingleService from "./pages/SingleService/SingleService";
 import ServicePage from "./pages/ServicePage/ServicePage";
 
 const App = () => {
@@ -68,7 +68,7 @@ const App = () => {
         <Route path="/purchase-success" element={<Success />} />
         <Route path="/purchase-cancel" element={<Cancel />} />
         <Route path="/services" element={<ServicePage />} />
-        <Route path="/services/:id" element={<SingleService />} />
+        {/* <Route path="/services/:id" element={<SingleService />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>
