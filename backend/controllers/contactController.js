@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer"
 
 export const contact = (req, res) => {
-  const { name, email, message } = req.body;
+  const { name, email, message,phone } = req.body;
 
   const transporter = nodemailer.createTransport({
     service: "gmail",
@@ -14,8 +14,8 @@ export const contact = (req, res) => {
   const mailOptions = {
     from: email,
     to: process.env.EMAIL_USER,
-    subject: "Contact Us Message",
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    subject: "Seek Help Message",
+    text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {

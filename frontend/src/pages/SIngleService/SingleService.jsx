@@ -17,7 +17,7 @@ const SingleService = () => {
       {!singleService ? (
         <Loader />
       ) : (
-        <div className="services">
+        <div className="single-services">
           <div className="image-container">
             <img src={singleService?.mainImage} alt="err" />
 

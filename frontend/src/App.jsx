@@ -21,8 +21,10 @@ import Success from "./pages/Success/Success";
 import Cancel from "./pages/Cancel/Cancel";
 import Home from "./pages/Home/Home";
 import ProductDescription from "./pages/ProductDescription/ProductDescription";
-// import SingleService from "./pages/SingleService/SingleService";
+import SingleService from "./pages/SingleService/SingleService";
 import ServicePage from "./pages/ServicePage/ServicePage";
+import CartTry from "./pages/Ct/CartTry";
+import MyOrders from "./pages/MyOrders/MyOrders";
 
 const App = () => {
   const { user, checkAuth,checkingAuth } = useUserStore();
@@ -60,6 +62,7 @@ const App = () => {
         />
         <Route path="/signup" element={user ? <Navigate to="/"/> : <Signup/>  } />
         <Route path="/cart" element={user ? <Cart /> : <Navigate to="/" />} />
+        <Route path="/carttry" element={user ? <CartTry /> : <Navigate to="/" />} /> 
         <Route path="/product-description/:id" element={<ProductDescription/>} />
         <Route path="/search" element={<Search />} />
         <Route path="/shipping" element={<Shipping />} />
@@ -68,7 +71,8 @@ const App = () => {
         <Route path="/purchase-success" element={<Success />} />
         <Route path="/purchase-cancel" element={<Cancel />} />
         <Route path="/services" element={<ServicePage />} />
-        {/* <Route path="/services/:id" element={<SingleService />} /> */}
+        <Route path="/service/:id" element={<SingleService />} />
+        <Route path="/myorders" element={<MyOrders />} />
       </Routes>
       <Footer />
     </BrowserRouter>

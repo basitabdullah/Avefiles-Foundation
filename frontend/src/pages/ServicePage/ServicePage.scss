@@ -33,7 +33,7 @@ $desktop: 1024px;
     font-weight: 500;
   }
 
-  h2 {
+  > h2 {
     color: $heading-color;
     font-size: 2.5rem;
     margin-bottom: 1rem;
@@ -41,7 +41,7 @@ $desktop: 1024px;
     font-weight: 400;
   }
 
-  p {
+  > p {
     color: $text-color;
     font-size: 1.1rem;
     max-width: 600px;

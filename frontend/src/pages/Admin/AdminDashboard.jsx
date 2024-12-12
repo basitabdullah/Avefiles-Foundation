@@ -14,7 +14,7 @@ const AdminDashboard = () => {
       <h1>Admin Dashboard</h1>
       <div className="pageSwitcher">
         {pages?.map((page) => (
-          <button key={page} onClick={() => setPage(page)}>
+          <button className="page-switcher-btn" key={page} onClick={() => setPage(page)}>
             {page}
           </button>
         ))}
