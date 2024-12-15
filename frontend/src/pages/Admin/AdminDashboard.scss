@@ -19,10 +19,11 @@
     @media (max-width : 392px) {
       flex-direction: column;
     }
-    button {
+    .page-switcher-btn {
       padding: 10px;
       border: none;
       background-color: black;
+      border-radius: 0;
       font-size: 17px;
       cursor: pointer;
       color: white;

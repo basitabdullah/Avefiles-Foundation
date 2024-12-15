@@ -30,12 +30,17 @@ const Navbar = () => {
         <Link to={"/shop"} className={getActiveClass("/shop")}>
           <p>Shop</p>
         </Link>
+        
 
         <Link to={"/services"} className={getActiveClass("/services")}>
           <p>Services</p>
         </Link>
         <Link to={"/about"} className={getActiveClass("/about")}>
           <p>ABOUT</p>
+        </Link>
+        
+         <Link to={"/myorders"} className={getActiveClass("/myorders")}>
+          <p>My Orders</p>
         </Link>
 
       

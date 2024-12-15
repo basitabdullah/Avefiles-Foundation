@@ -50,7 +50,7 @@ const Products = () => {
                   <td>₹{product.price}</td>
                   <td>{product.category}</td>
                   <td>
-                    <button className="featured-button" onClick={()=>toggleFeaturedProduct(product._id)}>
+                    <button className="featured-button-admin-dashboard" onClick={()=>toggleFeaturedProduct(product._id)}>
                       {product.isFeatured ? <FaStar /> : <IoClose />}
                     </button>
                   </td>
