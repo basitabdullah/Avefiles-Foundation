@@ -26,6 +26,16 @@ import ServicePage from "./pages/ServicePage/ServicePage";
 import CartTry from "./pages/Ct/CartTry";
 import MyOrders from "./pages/MyOrders/MyOrders";
 
+
+
+
+
+
+
+
+
+
+
 const App = () => {
   const { user, checkAuth,checkingAuth } = useUserStore();
   const { getCartItems } = useCartStore();
