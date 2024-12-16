@@ -55,5 +55,3 @@ const SingleService = () => {
 
 export default SingleService;
 
-
-//fixxxxxxx
