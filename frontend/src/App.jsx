@@ -21,7 +21,7 @@ import Success from "./pages/Success/Success";
 import Cancel from "./pages/Cancel/Cancel";
 import Home from "./pages/Home/Home";
 import ProductDescription from "./pages/ProductDescription/ProductDescription";
-import SingleService from "./pages/SingleService/SingleService";
+import SingleService from "./pages/SingleServicePage/SingleService";
 import ServicePage from "./pages/ServicePage/ServicePage";
 import CartTry from "./pages/Ct/CartTry";
 import MyOrders from "./pages/MyOrders/MyOrders";
