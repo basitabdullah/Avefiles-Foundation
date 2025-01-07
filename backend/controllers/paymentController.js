@@ -2,6 +2,8 @@ import { Coupon } from "../models/couponModel.js";
 import Order from "../models/orderModel.js";
 import { stripe } from "../lib/stripe.js";
 import { razorpayInstance } from "../server.js";
+import Cart from "../models/cartModel.js";
+import crypto from "crypto";
 
 export const createCheckoutSession = async (req, res) => {
   try {
@@ -161,32 +163,122 @@ async function createNewCoupon(userId) {
 
 export const checkout = async (req, res) => {
   try {
+    const { amount, shippingDetails } = req.body;
+    console.log("Received checkout data:", { amount, shippingDetails });
+
+    // Create Razorpay order
     const options = {
-      amount: Number(req.body.amount * 100),
+      amount: Number(amount * 100),
       currency: "INR",
+      receipt: `order_${Date.now()}`,
+      notes: {
+        shipping_details: JSON.stringify(shippingDetails),
+        user_id: req.user._id
+      }
     };
 
-    const order = await razorpayInstance.orders.create(options);
+    console.log("Creating Razorpay order with options:", options);
+
+    const razorpayOrder = await razorpayInstance.orders.create(options);
+    console.log("Razorpay order created:", razorpayOrder);
+
+    // Get cart items
+    const cart = await Cart.findOne({ user: req.user._id }).populate('items.product');
+    
+    if (!cart || !cart.items.length === 0) {
+      return res.status(400).json({
+        success: false,
+        message: "Cart is empty"
+      });
+    }
+
+    // Create order in our database - Remove stripeSessionId for Razorpay orders
+    const newOrder = await Order.create({
+      user: req.user._id,
+      products: cart.items.map(item => ({
+        product: item.product._id,
+        quantity: item.quantity,
+        price: item.product.price
+      })),
+      shippingDetails,
+      totalAmount: amount,
+      paymentInfo: {
+        orderId: razorpayOrder.id,
+        paymentMethod: 'razorpay'
+        // Note: stripeSessionId is not included for Razorpay orders
+      },
+      orderStatus: 'pending'
+    });
+
+    console.log("Order created in database:", newOrder);
+
+    // Clear the cart after order creation
+    await Cart.findOneAndDelete({ user: req.user._id });
+    console.log("Cart cleared for user:", req.user._id);
 
     res.status(200).json({
       success: true,
-      order,
+      order: razorpayOrder,
+      orderId: newOrder._id,
+      clearCart: true
     });
   } catch (error) {
-    console.log(error);
+    console.log("Order creation error:", error);
+    res.status(500).json({
+      success: false,
+      message: "Error creating order",
+      error: error.message
+    });
   }
 };
 
 export const paymentVerification = async (req, res) => {
   try {
+    const { 
+      razorpay_payment_id, 
+      razorpay_order_id, 
+      razorpay_signature 
+    } = req.body;
 
-	console.log(req.body);
-	
-    res.status(200).json({
-      success: true,
-    });
+    // Verify the payment signature
+    const body = razorpay_order_id + "|" + razorpay_payment_id;
+    const expectedSignature = crypto
+      .createHmac("sha256", process.env.RAZOR_PAY_SECRET)
+      .update(body.toString())
+      .digest("hex");
+
+    const isAuthentic = expectedSignature === razorpay_signature;
+
+    if (!isAuthentic) {
+      return res.status(400).json({
+        success: false,
+        message: "Payment verification failed"
+      });
+    }
+
+    // Update the existing order instead of creating a new one
+    const updatedOrder = await Order.findOneAndUpdate(
+      { "paymentInfo.orderId": razorpay_order_id },
+      {
+        $set: {
+          "paymentInfo.paymentId": razorpay_payment_id,
+          orderStatus: "processing"
+        }
+      },
+      { new: true }
+    );
+
+    if (!updatedOrder) {
+      return res.status(404).json({
+        success: false,
+        message: "Order not found"
+      });
+    }
+
+    res.redirect(`${process.env.CLIENT_URL}/purchase-success`);
   } catch (error) {
-    console.log(error);
+    console.error("Payment verification error:", error);
+    res.redirect(`${process.env.CLIENT_URL}/purchase-failed?error=${encodeURIComponent(error.message)}`);
   }
 };
 

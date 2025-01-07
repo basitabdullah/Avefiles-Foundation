@@ -13,6 +13,7 @@ import servicesRoutes from "./routes/servicesRoutes.js";
 import dotenv from "dotenv";
 import Razorpay from "razorpay";
 import path from "path";
+import orderRoutes from './routes/orderRoutes.js';
 const app = express();
 dotenv.config();
 
@@ -38,6 +39,7 @@ app.use("/api/cart", cartRoutes);
 app.use("/api/coupon", couponRoutes);
 app.use("/api/payment", paymentRoutes);
 app.use("/api/analytics", analyticsRoutes);
+app.use('/api/orders', orderRoutes);
 app.post("/api/send-email", contact);
 
 if (process.env.NODE_ENV === "production") {

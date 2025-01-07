@@ -3,6 +3,7 @@ import "./Cart.scss";
 import { IoCloseSharp } from "react-icons/io5";
 import { BiSolidError } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import MetaData from "../../components/MetaData.jsx";
 import { motion } from "framer-motion";
 import { MdAttachMoney } from "react-icons/md";
@@ -27,10 +28,21 @@ const Cart = () => {
     getMyCoupon,
     validateCoupon,
     removeCoupon,
+    getCartItems,
   } = useCartStore();
   const { products, getRecomemdedProducts } = useProductStore();
   const { addToCart } = useCartStore();
   const [couponCode, setCouponCode] = useState("");
+  const [showShippingForm, setShowShippingForm] = useState(false);
+  const [shippingDetails, setShippingDetails] = useState({
+    fullName: "",
+    address: "",
+    city: "",
+    state: "",
+    pinCode: "",
+    phone: ""
+  });
+
   useEffect(() => {
     getRecomemdedProducts();
   }, [getRecomemdedProducts]);
@@ -42,6 +54,10 @@ const Cart = () => {
   useEffect(() => {
     if (coupon) setCouponCode(coupon.code);
   }, [coupon]);
+
+  useEffect(() => {
+    getCartItems();
+  }, [getCartItems]);
 
   const handleStripePayment = async () => {
     try {
@@ -61,45 +77,74 @@ const Cart = () => {
     }
   };
 
+  const handleShippingSubmit = (e) => {
+    e.preventDefault();
+    handleRazorpayPayment();
+  };
+
   const handleRazorpayPayment = async () => {
     try {
-      const {
-        data: { key },
-      } = await axios.get("/payment/getkey");
-
-      const {
-        data: { order },
-      } = await axios.post("/payment/checkout", {
+      const { data: { key } } = await axios.get("/payment/getkey");
+      
+      console.log("Shipping details:", shippingDetails);
+      
+      const { data } = await axios.post("/payment/checkout", {
         amount: total,
+        shippingDetails
       });
-      console.log(order);
+
+      console.log("Order created:", data);
 
       const options = {
         key,
-        amount: order.amount,
+        amount: data.order.amount,
         currency: "INR",
         name: "New One",
         description: "Test Transaction",
-        image:
-          "https://res.cloudinary.com/dfntxbbxh/image/upload/v1732510773/products/bys84mh75xibrxctbmdg.jpg",
-        order_id: order.id,
-        callback_url: "http://localhost:5000/api/payment/paymentverification",
-        prefill: {
-          name: "Gaurav Kumar",
-          email: "gaurav.kumar@example.com",
-          contact: "9000090000",
-        },
+        image: "https://res.cloudinary.com/dfntxbbxh/image/upload/v1732510773/products/bys84mh75xibrxctbmdg.jpg",
+        order_id: data.order.id,
         notes: {
-          address: "Razorpay Corporate Office",
+          shipping_details: JSON.stringify(shippingDetails),
+          user_id: localStorage.getItem('userId')
+        },
+        handler: async function (response) {
+          try {
+            const verificationData = {
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_signature: response.razorpay_signature,
+              shippingDetails,
+              amount: total
+            };
+            
+            console.log("Sending verification data:", verificationData);
+            
+            const { data } = await axios.post("/payment/checkout", verificationData);
+            
+            if (data.success) {
+              clearCart();
+              toast.success("Payment successful!");
+              navigate('/purchase-success');
+            }
+          } catch (error) {
+            console.error("Payment verification failed:", error);
+            toast.error("Payment verification failed");
+          }
+        },
+        prefill: {
+          name: shippingDetails.fullName,
+          contact: shippingDetails.phone,
         },
         theme: {
-          color: "#121212",
-        },
+          color: "#121212"
+        }
       };
+
       const razor = new window.Razorpay(options);
       razor.open();
     } catch (error) {
-      console.log(error);
+      console.error("Payment initialization failed:", error);
+      toast.error("Payment initialization failed");
     }
   };
 
@@ -226,10 +271,82 @@ const Cart = () => {
                   No Coupon Applied
                 </span>
               ))}
-            <button className="checkout-btn" onClick={handleRazorpayPayment}>
-              <MdAttachMoney />
-              Checkout
-            </button>
+            {!showShippingForm ? (
+              <button 
+                className="checkout-btn" 
+                onClick={() => setShowShippingForm(true)}
+              >
+                <MdAttachMoney />
+                Proceed to Checkout
+              </button>
+            ) : (
+              <form onSubmit={handleShippingSubmit} className="shipping-form">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  required
+                  value={shippingDetails.fullName}
+                  onChange={(e) => setShippingDetails(prev => ({
+                    ...prev,
+                    fullName: e.target.value
+                  }))}
+                />
+                <input
+                  type="text"
+                  placeholder="Address"
+                  required
+                  value={shippingDetails.address}
+                  onChange={(e) => setShippingDetails(prev => ({
+                    ...prev,
+                    address: e.target.value
+                  }))}
+                />
+                <input
+                  type="text"
+                  placeholder="City"
+                  required
+                  value={shippingDetails.city}
+                  onChange={(e) => setShippingDetails(prev => ({
+                    ...prev,
+                    city: e.target.value
+                  }))}
+                />
+                <input
+                  type="text"
+                  placeholder="State"
+                  required
+                  value={shippingDetails.state}
+                  onChange={(e) => setShippingDetails(prev => ({
+                    ...prev,
+                    state: e.target.value
+                  }))}
+                />
+                <input
+                  type="text"
+                  placeholder="PIN Code"
+                  required
+                  value={shippingDetails.pinCode}
+                  onChange={(e) => setShippingDetails(prev => ({
+                    ...prev,
+                    pinCode: e.target.value
+                  }))}
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number"
+                  required
+                  value={shippingDetails.phone}
+                  onChange={(e) => setShippingDetails(prev => ({
+                    ...prev,
+                    phone: e.target.value
+                  }))}
+                />
+                <button type="submit" className="checkout-btn">
+                  <MdAttachMoney />
+                  Pay Now
+                </button>
+              </form>
+            )}
           </div>
         </>
       )}

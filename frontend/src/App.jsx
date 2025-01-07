@@ -26,33 +26,20 @@ import ServicePage from "./pages/ServicePage/ServicePage";
 import CartTry from "./pages/Ct/CartTry";
 import MyOrders from "./pages/MyOrders/MyOrders";
 
-
-
-
-
-
-
-
-
-
-
 const App = () => {
-  const { user, checkAuth,checkingAuth } = useUserStore();
+  const { user, checkAuth, checkingAuth } = useUserStore();
   const { getCartItems } = useCartStore();
   useEffect(() => {
     checkAuth();
   }, []);
 
   useEffect(() => {
-		if (!user) return;
+    if (!user) return;
 
-		getCartItems();
-	}, [getCartItems, user]);
-
+    getCartItems();
+  }, [getCartItems, user]);
 
   if (checkingAuth) return <Loader />;
-
-
 
   return (
     <BrowserRouter>
@@ -62,18 +49,24 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
-        <Route
-          path="/login"
-          element={user ? <Navigate to="/"/> : <Login/>  }
-        />
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route
           path="/admin-dashboard"
           element={user?.role === "admin" ? <AdminDashboard /> : <Login />}
         />
-        <Route path="/signup" element={user ? <Navigate to="/"/> : <Signup/>  } />
+        <Route
+          path="/signup"
+          element={user ? <Navigate to="/" /> : <Signup />}
+        />
         <Route path="/cart" element={user ? <Cart /> : <Navigate to="/" />} />
-        <Route path="/carttry" element={user ? <CartTry /> : <Navigate to="/" />} /> 
-        <Route path="/product-description/:id" element={<ProductDescription/>} />
+        <Route
+          path="/carttry"
+          element={user ? <CartTry /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/product-description/:id"
+          element={<ProductDescription />}
+        />
         <Route path="/search" element={<Search />} />
         <Route path="/shipping" element={<Shipping />} />
         <Route path="/contact-us" element={<Contact />} />

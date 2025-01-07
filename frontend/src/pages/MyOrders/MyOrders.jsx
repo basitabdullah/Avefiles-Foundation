@@ -1,154 +1,120 @@
-import "./MyOrders.scss";
-import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
-import { useState } from "react";
-const orders = [
-  {
-    id: 1,
-    date: "2024-02-20",
-    status: "Delivered",
-    total: 299.98,
-    items: [
-      {
-        id: 1,
-        name: "Wireless Headphones",
-        price: 99.99,
-        quantity: 1,
-        image: "https://picsum.photos/200/200?random=1",
-      },
-      {
-        id: 2,
-        name: "Smart Watch",
-        price: 199.99,
-        quantity: 1,
-        image: "https://picsum.photos/200/200?random=2",
-      },
-    ],
-    shippingAddress: {
-      name: "John Doe",
-      address: "123 Main St",
-      city: "New York",
-      zipCode: "10001",
-      country: "USA",
-    },
-  },
-  {
-    id: 2,
-    date: "2024-02-15",
-    status: "In Transit",
-    total: 79.99,
-    items: [
-      {
-        id: 3,
-        name: "Bluetooth Speaker",
-        price: 79.99,
-        quantity: 1,
-        image: "https://picsum.photos/200/200?random=3",
-      },
-    ],
-    shippingAddress: {
-      name: "John Doe",
-      address: "123 Main St",
-      city: "New York",
-      zipCode: "10001",
-      country: "USA",
-    },
-  },
-];
+import { useEffect, useState } from 'react';
+import axios from '../../lib/axios';
+import './MyOrders.scss';
+import { toast } from 'react-hot-toast';
+import { motion } from 'framer-motion';
+import MetaData from '../../components/MetaData';
+import { useNavigate } from 'react-router-dom';
+import { useUserStore } from '../../stores/useUserStore';
 
-function MyOrders() {
+const MyOrders = () => {
+  const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const { user } = useUserStore();
+
+  useEffect(() => {
+    // Redirect if not logged in
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+
+    const fetchOrders = async () => {
+      try {
+        console.log('Fetching orders...');
+        const { data } = await axios.get('/orders/my');
+        console.log('Orders received:', data);
+        setOrders(data.orders);
+      } catch (error) {
+        console.error('Error fetching orders:', error);
+        toast.error(error.response?.data?.message || 'Error fetching orders');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchOrders();
+  }, [user, navigate]);
+
+  if (loading) {
+    return <div className="loading">Loading...</div>;
+  }
+
   return (
-    <div className="orders-page">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="my-orders"
+    >
+      <MetaData title="My Orders | Avefiles" />
       <h1>My Orders</h1>
-      <div className="orders-container">
-        <div className="orders-main">
-          <OrderList orders={orders} />
-        </div>
-        <div className="orders-sidebar">
-          <OrderStats orders={orders} />
-        </div>
-      </div>
-    </div>
-  );
-}
 
-
-function OrderList({ orders }) {
-    return (
-      <div className="order-list">
-        {orders.map(order => (
-          <OrderItem key={order.id} order={order} />
-        ))}
-      </div>
-    );
-  }
-  function OrderItem({ order }) {
-    const [isExpanded, setIsExpanded] = useState(false);
-  
-    return (
-      <div className="order-item">
-        <div className="order-header" onClick={() => setIsExpanded(!isExpanded)}>
-          <div className="order-info">
-            <span className="order-date">{new Date(order.date).toLocaleDateString()}</span>
-            <span className={`order-status ${order.status.toLowerCase()}`}>
-              {order.status}
-            </span>
-          </div>
-          <div className="order-summary">
-            <span className="order-total">${order.total.toFixed(2)}</span>
-            {isExpanded ? <FiChevronUp /> : <FiChevronDown />}
-          </div>
+      {orders.length === 0 ? (
+        <div className="no-orders">
+          <p>No orders found</p>
         </div>
-  
-        {isExpanded && (
-          <div className="order-details">
-            <div className="order-items">
-              {order.items.map(item => (
-                <div key={item.id} className="order-product">
-                  <img src={item.image} alt={item.name} />
-                  <div className="product-info">
-                    <h4>{item.name}</h4>
-                    <p>Quantity: {item.quantity}</p>
-                    <p>${item.price.toFixed(2)}</p>
+      ) : (
+        <div className="orders-container">
+          {orders.map((order) => (
+            <div key={order._id} className="order-card">
+              <div className="order-header">
+                <h3>Order #{order._id}</h3>
+                <span className={`status ${order.orderStatus.toLowerCase()}`}>
+                  {order.orderStatus}
+                </span>
+              </div>
+
+              <div className="order-details">
+                <p>
+                  <strong>Date:</strong>{' '}
+                  {new Date(order.createdAt).toLocaleDateString()}
+                </p>
+                <p>
+                  <strong>Total Amount:</strong> ₹{order.totalAmount}
+                </p>
+                <p>
+                  <strong>Payment Method:</strong>{' '}
+                  {order.paymentInfo.paymentMethod}
+                </p>
+              </div>
+
+              <div className="order-items">
+                {order.products.map((item) => (
+                  <div key={item._id} className="order-item">
+                    <img 
+                      src={item.product.image} 
+                      alt={item.product.name} 
+                      onError={(e) => {
+                        e.target.src = '/placeholder.png'; // Add a placeholder image
+                      }}
+                    />
+                    <div className="item-details">
+                      <h4>{item.product.name}</h4>
+                      <p>Quantity: {item.quantity}</p>
+                      <p>Price: ₹{item.price}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+
+              <div className="shipping-details">
+                <h4>Shipping Details</h4>
+                <p>{order.shippingDetails.fullName}</p>
+                <p>{order.shippingDetails.address}</p>
+                <p>
+                  {order.shippingDetails.city}, {order.shippingDetails.state}
+                </p>
+                <p>PIN: {order.shippingDetails.pinCode}</p>
+                <p>Phone: {order.shippingDetails.phone}</p>
+              </div>
             </div>
-            
-            <div className="shipping-details">
-              <h4>Shipping Address</h4>
-              <p>{order.shippingAddress.name}</p>
-              <p>{order.shippingAddress.address}</p>
-              <p>{order.shippingAddress.city}, {order.shippingAddress.zipCode}</p>
-              <p>{order.shippingAddress.country}</p>
-            </div>
-          </div>
-        )}
-      </div>
-    );
-  }
-  function OrderStats({ orders }) {
-    const totalOrders = orders.length;
-    const totalSpent = orders.reduce((sum, order) => sum + order.total, 0);
-    const deliveredOrders = orders.filter(order => order.status === 'Delivered').length;
-  
-    return (
-      <div className="order-stats">
-        <h3>Order Statistics</h3>
-        <div className="stats-grid">
-          <div className="stat-item">
-            <span className="stat-label">Total Orders</span>
-            <span className="stat-value">{totalOrders}</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-label">Total Spent</span>
-            <span className="stat-value">${totalSpent.toFixed(2)}</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-label">Delivered Orders</span>
-            <span className="stat-value">{deliveredOrders}</span>
-          </div>
+          ))}
         </div>
-      </div>
-    );
-  }
+      )}
+    </motion.div>
+  );
+};
+
 export default MyOrders;
