@@ -1,45 +1,10 @@
 import "./Success.scss";
 import { FaRegCheckCircle } from "react-icons/fa";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useCartStore } from "../../stores/useCartStore";
-import axios from "../../lib/axios";
 import Confetti from "react-confetti";
 
-
 const Success = () => {
-  const [isProcessing, setIsProcessing] = useState(true);
-  const { clearCart } = useCartStore();
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    const handleCheckoutSuccess = async (sessionId) => {
-      try {
-        await axios.post("/payment/checkout-success", { sessionId });
-        clearCart();
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setIsProcessing(false);
-      }
-    };
-
-    const sessionId = new URLSearchParams(window.location.search).get(
-      "session_id"
-    );
-    if (sessionId) {
-      handleCheckoutSuccess(sessionId);
-    } else {
-      setIsProcessing(false);
-      setError("Session ID not found");
-    }
-  }, [clearCart]);
-
-  if (isProcessing) {
-    return <div>Processing...</div>;
-  }
-  if (error) {
-    return <div>Error : {error}</div>;
-  }
   return (
     <div className="success-page">
       <Confetti
@@ -49,15 +14,22 @@ const Success = () => {
         style={{ zIndex: 99 }}
         numberOfPieces={700}
         recycle={false}
+        colors={['#28a745', '#ffc107', '#17a2b8', '#dc3545', '#007bff']} // Festive colors
       />
       <div className="success">
-        <FaRegCheckCircle />
-        <p>
-          Your transaction has been completed successfully. Hope you shop again
-          soon !
+        <FaRegCheckCircle className="check-icon" />
+        <h2>Payment Successful!</h2>
+        <p className="success-message">
+          Thank you for your purchase! Your order has been confirmed.
         </p>
-
-        <Link to="/">Shop Again</Link>
+        <div className="actions">
+          <Link to="/myorders" className="view-orders-btn">
+            View Your Orders
+          </Link>
+          <Link to="/shop" className="shop-again-btn">
+            Continue Shopping
+          </Link>
+        </div>
       </div>
     </div>
   );

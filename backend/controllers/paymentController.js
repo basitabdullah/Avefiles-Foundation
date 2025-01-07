@@ -166,6 +166,17 @@ export const checkout = async (req, res) => {
     const { amount, shippingDetails } = req.body;
     console.log("Received checkout data:", { amount, shippingDetails });
 
+    // First check if cart exists and has items
+    const cart = await Cart.findOne({ user: req.user._id }).populate('items.product');
+    
+    if (!cart || cart.items.length === 0) {
+      console.log("Cart check failed:", { cart, userId: req.user._id });
+      return res.status(400).json({
+        success: false,
+        message: "Cart is empty"
+      });
+    }
+
     // Create Razorpay order
     const options = {
       amount: Number(amount * 100),
@@ -173,7 +184,8 @@ export const checkout = async (req, res) => {
       receipt: `order_${Date.now()}`,
       notes: {
         shipping_details: JSON.stringify(shippingDetails),
-        user_id: req.user._id
+        user_id: req.user._id,
+        cart_id: cart._id // Add cart ID to notes for reference
       }
     };
 
@@ -182,17 +194,7 @@ export const checkout = async (req, res) => {
     const razorpayOrder = await razorpayInstance.orders.create(options);
     console.log("Razorpay order created:", razorpayOrder);
 
-    // Get cart items
-    const cart = await Cart.findOne({ user: req.user._id }).populate('items.product');
-    
-    if (!cart || !cart.items.length === 0) {
-      return res.status(400).json({
-        success: false,
-        message: "Cart is empty"
-      });
-    }
-
-    // Create order in our database - Remove stripeSessionId for Razorpay orders
+    // Create order in database BEFORE clearing cart
     const newOrder = await Order.create({
       user: req.user._id,
       products: cart.items.map(item => ({
@@ -205,22 +207,20 @@ export const checkout = async (req, res) => {
       paymentInfo: {
         orderId: razorpayOrder.id,
         paymentMethod: 'razorpay'
-        // Note: stripeSessionId is not included for Razorpay orders
       },
       orderStatus: 'pending'
     });
 
-    console.log("Order created in database:", newOrder);
-
-    // Clear the cart after order creation
-    await Cart.findOneAndDelete({ user: req.user._id });
-    console.log("Cart cleared for user:", req.user._id);
+    // Only clear cart AFTER successful order creation
+    if (newOrder) {
+      await Cart.findOneAndDelete({ user: req.user._id });
+      console.log("Cart cleared for user:", req.user._id);
+    }
 
     res.status(200).json({
       success: true,
       order: razorpayOrder,
-      orderId: newOrder._id,
-      clearCart: true
+      orderId: newOrder._id
     });
   } catch (error) {
     console.log("Order creation error:", error);
@@ -240,12 +240,24 @@ export const paymentVerification = async (req, res) => {
       razorpay_signature 
     } = req.body;
 
+    console.log('Verification Data:', {
+      razorpay_payment_id,
+      razorpay_order_id,
+      razorpay_signature
+    });
+
     // Verify the payment signature
     const body = razorpay_order_id + "|" + razorpay_payment_id;
     const expectedSignature = crypto
       .createHmac("sha256", process.env.RAZOR_PAY_SECRET)
       .update(body.toString())
       .digest("hex");
+
+    console.log('Signature Comparison:', {
+      expected: expectedSignature,
+      received: razorpay_signature,
+      secret: process.env.RAZOR_PAY_SECRET?.slice(0, 4) + '...' // Log first 4 chars of secret for verification
+    });
 
     const isAuthentic = expectedSignature === razorpay_signature;
 

@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import MetaData from '../../components/MetaData';
 import { useNavigate } from 'react-router-dom';
 import { useUserStore } from '../../stores/useUserStore';
+import Loader from '../../components/Loaders/maxLoader/Loader';
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -38,7 +39,7 @@ const MyOrders = () => {
   }, [user, navigate]);
 
   if (loading) {
-    return <div className="loading">Loading...</div>;
+    return <div className="loading"><Loader /></div>;
   }
 
   return (

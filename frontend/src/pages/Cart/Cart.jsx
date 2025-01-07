@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Cart.scss";
 import { IoCloseSharp } from "react-icons/io5";
 import { BiSolidError } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import MetaData from "../../components/MetaData.jsx";
 import { motion } from "framer-motion";
@@ -29,6 +29,7 @@ const Cart = () => {
     validateCoupon,
     removeCoupon,
     getCartItems,
+    clearCart,
   } = useCartStore();
   const { products, getRecomemdedProducts } = useProductStore();
   const { addToCart } = useCartStore();
@@ -42,6 +43,7 @@ const Cart = () => {
     pinCode: "",
     phone: ""
   });
+  const navigate = useNavigate();
 
   useEffect(() => {
     getRecomemdedProducts();
@@ -99,9 +101,9 @@ const Cart = () => {
         key,
         amount: data.order.amount,
         currency: "INR",
-        name: "New One",
-        description: "Test Transaction",
-        image: "https://res.cloudinary.com/dfntxbbxh/image/upload/v1732510773/products/bys84mh75xibrxctbmdg.jpg",
+        name: "Avefiles Foundation",
+        description: "Payment for your order",
+        image: "/avefiles.png",
         order_id: data.order.id,
         notes: {
           shipping_details: JSON.stringify(shippingDetails),
@@ -119,16 +121,17 @@ const Cart = () => {
             
             console.log("Sending verification data:", verificationData);
             
-            const { data } = await axios.post("/payment/checkout", verificationData);
+            const { data } = await axios.post("/payment/paymentverification", verificationData);
             
             if (data.success) {
-              clearCart();
+              await clearCart();
               toast.success("Payment successful!");
               navigate('/purchase-success');
             }
           } catch (error) {
             console.error("Payment verification failed:", error);
-            toast.error("Payment verification failed");
+            toast.error(error.response?.data?.message || "Payment verification failed");
+            navigate('/purchase-failed');
           }
         },
         prefill: {

@@ -3,29 +3,120 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #f8f9fa;
+  position: relative;
+  overflow: hidden;
 
   .success {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 50px;
-    svg {
-      font-size: 80px;
-      color: rgb(91, 194, 91);
+    background: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    z-index: 100;
+    animation: fadeInUp 0.6s ease-out;
+
+    .check-icon {
+      color: #28a745;
+      font-size: 5rem;
+      margin-bottom: 1.5rem;
+      animation: scaleIn 0.5s ease-out;
     }
 
-    p {
-      font-size: 30px;
-      width: 70%;
-      text-align: center;
-      font-weight: 400;
+    h2 {
+      color: #28a745;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      font-weight: 600;
     }
 
-    >a{
-       background-color: black;
-       padding: 10px;
-       color: aliceblue;
+    .success-message {
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      a {
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+
+        &.view-orders-btn {
+          background: #28a745;
+          color: white;
+          
+          &:hover {
+            background: #218838;
+            transform: translateY(-2px);
+          }
+        }
+
+        &.shop-again-btn {
+          background: #f8f9fa;
+          color: #212529;
+          border: 2px solid #dee2e6;
+          
+          &:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+// Media queries for responsiveness
+@media (max-width: 480px) {
+  .success-page .success {
+    padding: 2rem;
+    
+    .check-icon {
+      font-size: 4rem;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+    }
+    
+    .actions {
+      flex-direction: column;
+      
+      a {
+        width: 100%;
+      }
     }
   }
 }
