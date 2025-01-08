@@ -240,24 +240,12 @@ export const paymentVerification = async (req, res) => {
       razorpay_signature 
     } = req.body;
 
-    console.log('Verification Data:', {
-      razorpay_payment_id,
-      razorpay_order_id,
-      razorpay_signature
-    });
-
     // Verify the payment signature
     const body = razorpay_order_id + "|" + razorpay_payment_id;
     const expectedSignature = crypto
       .createHmac("sha256", process.env.RAZOR_PAY_SECRET)
       .update(body.toString())
       .digest("hex");
-
-    console.log('Signature Comparison:', {
-      expected: expectedSignature,
-      received: razorpay_signature,
-      secret: process.env.RAZOR_PAY_SECRET?.slice(0, 4) + '...' // Log first 4 chars of secret for verification
-    });
 
     const isAuthentic = expectedSignature === razorpay_signature;
 
@@ -268,7 +256,7 @@ export const paymentVerification = async (req, res) => {
       });
     }
 
-    // Update the existing order instead of creating a new one
+    // Update the existing order
     const updatedOrder = await Order.findOneAndUpdate(
       { "paymentInfo.orderId": razorpay_order_id },
       {
@@ -287,10 +275,19 @@ export const paymentVerification = async (req, res) => {
       });
     }
 
-    res.redirect(`${process.env.CLIENT_URL}/purchase-success`);
+    // Send JSON response instead of redirect
+    return res.status(200).json({
+      success: true,
+      message: "Payment verified successfully",
+      order: updatedOrder
+    });
+
   } catch (error) {
     console.error("Payment verification error:", error);
-    res.redirect(`${process.env.CLIENT_URL}/purchase-failed?error=${encodeURIComponent(error.message)}`);
+    return res.status(500).json({
+      success: false,
+      message: error.message
+    });
   }
 };
 
