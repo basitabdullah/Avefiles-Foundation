@@ -24,6 +24,7 @@ import ProductDescription from "./pages/ProductDescription/ProductDescription";
 import SingleService from "./pages/SingleServicePage/SingleService";
 import ServicePage from "./pages/ServicePage/ServicePage";
 import MyOrders from "./pages/MyOrders/MyOrders";
+import OrderDetails from "./pages/Admin/Orders/OrderDetails";
 
 const App = () => {
   const { user, checkAuth, checkingAuth } = useUserStore();
@@ -72,6 +73,7 @@ const App = () => {
         <Route path="/services" element={<ServicePage />} />
         <Route path="/service/:id" element={<SingleService />} />
         <Route path="/myorders" element={<MyOrders />} />
+        <Route path="/admin/orders/:orderId" element={<OrderDetails />} />
       </Routes>
       <Footer />
     </BrowserRouter>
