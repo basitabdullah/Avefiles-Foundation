@@ -4,8 +4,9 @@ import CreateProduct from "../../components/admin/CreateProduct/CreateProduct";
 import Products from "../../components/admin/Products/Products";
 import Analytics from "../../components/admin/Analytics/Analytics";
 import MetaData from "../../components/MetaData";
+import AdminOrders from "./Orders/AdminOrders";
 const AdminDashboard = () => {
-  const pages = ["create Product", "products", "analytics"];
+  const pages = ["create Product", "products", "analytics" , "orders"];
   const [page, setPage] = useState("create Product");
   return (
     <div className="admin">
@@ -23,6 +24,8 @@ const AdminDashboard = () => {
         {page === "create Product" && <CreateProduct />}
         {page === "products" && <Products />}
         {page === "analytics" && <Analytics />}
+        {page === "orders" && <AdminOrders />}
+
       </div>
     </div>
   );

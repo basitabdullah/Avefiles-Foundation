@@ -23,7 +23,6 @@ import Home from "./pages/Home/Home";
 import ProductDescription from "./pages/ProductDescription/ProductDescription";
 import SingleService from "./pages/SingleServicePage/SingleService";
 import ServicePage from "./pages/ServicePage/ServicePage";
-import CartTry from "./pages/Ct/CartTry";
 import MyOrders from "./pages/MyOrders/MyOrders";
 
 const App = () => {
@@ -59,10 +58,7 @@ const App = () => {
           element={user ? <Navigate to="/" /> : <Signup />}
         />
         <Route path="/cart" element={user ? <Cart /> : <Navigate to="/" />} />
-        <Route
-          path="/carttry"
-          element={user ? <CartTry /> : <Navigate to="/" />}
-        />
+      
         <Route
           path="/product-description/:id"
           element={<ProductDescription />}
