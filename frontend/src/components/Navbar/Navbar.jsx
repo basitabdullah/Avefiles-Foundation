@@ -7,7 +7,8 @@ import { IoPersonOutline } from "react-icons/io5";
 import { useUserStore } from "../../stores/useUserStore";
 import { useCartStore } from "../../stores/useCartStore";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { IoIosLogIn } from "react-icons/io";
 import logo from "../../assets/logo.jpg";
 const Navbar = () => {
   const [hamburgerMenu, setHamburgerMenu] = useState(false);
@@ -21,6 +22,24 @@ const Navbar = () => {
   }, [loaction]);
   const getActiveClass = (path) =>
     location.pathname === path ? "active-link" : "";
+
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const profileMenuRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        profileMenuRef.current &&
+        !profileMenuRef.current.contains(event.target)
+      ) {
+        setShowProfileMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <div className="navbar">
       <div className="left-sec">
@@ -30,7 +49,6 @@ const Navbar = () => {
         <Link to={"/shop"} className={getActiveClass("/shop")}>
           <p>Shop</p>
         </Link>
-        
 
         <Link to={"/services"} className={getActiveClass("/services")}>
           <p>Services</p>
@@ -38,12 +56,6 @@ const Navbar = () => {
         <Link to={"/about"} className={getActiveClass("/about")}>
           <p>ABOUT</p>
         </Link>
-        
-         <Link to={"/myorders"} className={getActiveClass("/myorders")}>
-          <p>My Orders</p>
-        </Link>
-
-      
       </div>
       <Link to={"/"}>
         <div className="logo-wrapper">
@@ -66,7 +78,7 @@ const Navbar = () => {
           </Link>
         )}
         <Link to="/login" className="login-icon">
-          <IoPersonOutline />
+          <IoIosLogIn />
           <p>Login</p>
         </Link>
 
@@ -78,10 +90,43 @@ const Navbar = () => {
                 <p className="items-in-cart">{itemsInCart}</p>
               )}
             </Link>
-            <button className="logout-btn" onClick={logout}>
-              Logout
-            </button>
           </>
+        )}
+
+        {user && (
+          <div className="profile-menu-container" ref={profileMenuRef}>
+            <button
+              className="profile-button"
+              onClick={() => setShowProfileMenu(!showProfileMenu)}
+            >
+              <IoPersonOutline />
+            </button>
+
+            {showProfileMenu && (
+              <div className="profile-dropdown">
+                <div className="profile-header">
+                  <p>{user.name}</p>
+                  <small>{user.email}</small>
+                </div>
+                <div className="profile-menu-items">
+                  <Link to="/profile" onClick={() => setShowProfileMenu(false)}>
+                    <IoPersonOutline />
+                    My Profile
+                  </Link>
+                  <Link
+                    to="/myorders"
+                    onClick={() => setShowProfileMenu(false)}
+                  >
+                    <BsCart2 />
+                    My Orders
+                  </Link>
+                  <button className="logout-btn" onClick={logout}>
+                    Logout
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         )}
       </div>
 

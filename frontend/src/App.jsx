@@ -25,6 +25,7 @@ import SingleService from "./pages/SingleServicePage/SingleService";
 import ServicePage from "./pages/ServicePage/ServicePage";
 import MyOrders from "./pages/MyOrders/MyOrders";
 import OrderDetails from "./pages/Admin/Orders/OrderDetails";
+import Profile from "./pages/Profile/Profile";
 
 const App = () => {
   const { user, checkAuth, checkingAuth } = useUserStore();
@@ -74,6 +75,10 @@ const App = () => {
         <Route path="/service/:id" element={<SingleService />} />
         <Route path="/myorders" element={<MyOrders />} />
         <Route path="/admin/orders/:orderId" element={<OrderDetails />} />
+        <Route 
+          path="/profile" 
+          element={user ? <Profile /> : <Navigate to="/login" />} 
+        />
       </Routes>
       <Footer />
     </BrowserRouter>
