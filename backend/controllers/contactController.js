@@ -14,7 +14,7 @@ export const contact = (req, res) => {
   const mailOptions = {
     from: email,
     to: process.env.EMAIL_USER,
-    subject: "Seek Help Message",
+    subject: "Avefiles Website Message",
     text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
   };
 

@@ -6,6 +6,8 @@ import MetaData from "../../components/MetaData.jsx";
 import { motion } from "framer-motion";
 import { useProductStore } from "../../stores/useProductStore.js";
 import Loader from "../../components/Loaders/minLoader/MinLoader.jsx";
+import { useSearchParams } from "react-router-dom";
+
 const Search = () => {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
@@ -14,6 +16,7 @@ const Search = () => {
   const [page, setPage] = useState(1);
   const { loading, fetchAllProducts, products, searchProducts } =
     useProductStore();
+  const [searchParams] = useSearchParams();
 
   const isPrevPage = page > 1;
   const isNextPage = page < 4;
@@ -38,13 +41,15 @@ const Search = () => {
   ];
 
   useEffect(() => {
-    fetchAllProducts();
-  }, [fetchAllProducts]);
-  
+    const categoryParam = searchParams.get("category");
+    if (categoryParam) {
+      setCategory(categoryParam);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     searchProducts(search, sort, maxprice, category);
-  }, [search, sort, maxprice, category]);
+  }, [search, sort, maxprice, category, searchProducts]);
 
   return (
     <motion.div
@@ -103,7 +108,7 @@ const Search = () => {
           </div>
         )}
 
-        <div className="pages">
+        {/* <div className="pages">
           <button
             disabled={!isPrevPage}
             onClick={(e) => setPage((prev) => prev - 1)}
@@ -119,7 +124,7 @@ const Search = () => {
           >
             <IoReturnUpForward />
           </button>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );

@@ -25,7 +25,7 @@ const ProductDescription = () => {
         </div>
         <div className="right-product-description">
           <h1>{product?.name}</h1>
-          <p className="price">${product?.price}</p>
+          <p className="price">₹{product?.price}</p>
           <p className="desc">
             {product?.description}
           </p>

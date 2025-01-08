@@ -84,7 +84,7 @@ const Shop = () => {
         className="categories"
       >
         {categories?.map((cat) => (
-          <Link to={`/search`} key={cat.name}>
+          <Link to={`/search?category=${cat.href.replace("/", "")}`} key={cat.name}>
             <div className="category">
               <img src={cat.imageUrl} alt="err" loading="lazy" />
               <div className="category-title">{cat.name}</div>

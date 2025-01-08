@@ -26,6 +26,7 @@ import ServicePage from "./pages/ServicePage/ServicePage";
 import MyOrders from "./pages/MyOrders/MyOrders";
 import OrderDetails from "./pages/Admin/Orders/OrderDetails";
 import Profile from "./pages/Profile/Profile";
+import BookNowForm from "./pages/BookNowForm/BookNowForm";
 
 const App = () => {
   const { user, checkAuth, checkingAuth } = useUserStore();
@@ -78,6 +79,10 @@ const App = () => {
         <Route 
           path="/profile" 
           element={user ? <Profile /> : <Navigate to="/login" />} 
+        />
+        <Route 
+          path="/book-service/:id" 
+          element={user ? <BookNowForm /> : <Navigate to="/login" />} 
         />
       </Routes>
       <Footer />

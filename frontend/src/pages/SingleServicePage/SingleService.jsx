@@ -3,6 +3,7 @@ import "./SingleService.scss";
 import { useUserStore } from "../../stores/useUserStore";
 import { useParams } from "react-router-dom";
 import Loader from "../../components/Loaders/maxLoader/Loader";
+import { Link } from "react-router-dom";
 
 const SingleService = () => {
   const { id } = useParams();
@@ -10,7 +11,6 @@ const SingleService = () => {
   useEffect(() => {
     fetchSingleService(id);
   }, [id]);
-  console.log(singleService);
 
   return (
     <>
@@ -24,6 +24,9 @@ const SingleService = () => {
             <div className="text">
               <h1>{singleService?.mainTitle}</h1>
               <p>{singleService?.mainDesc}</p>
+              <Link to={`/book-service/${singleService?._id}`}>
+                <button className="book-now-btn">Book Now</button>
+              </Link>
             </div>
           </div>
 

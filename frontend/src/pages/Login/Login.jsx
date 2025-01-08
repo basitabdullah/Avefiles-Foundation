@@ -33,7 +33,7 @@ const Login = () => {
           required
           type="email"
           value={email}
-          placeholder="for testing use(admin@admin.com)"
+          placeholder="Enter your email"
           onChange={(e) => setEmail(e.target.value)}
         />
 
@@ -42,7 +42,7 @@ const Login = () => {
           required
           type="password"
           value={password}
-          placeholder="for testing use(admin123)"
+          placeholder="Enter your password"
           onChange={(e) => setPassword(e.target.value)}
         />
         {error && <p>Error {error}</p>}

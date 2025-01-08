@@ -59,7 +59,7 @@ const Analytics = () => {
         />
         <AnalyticsCard
           title="Total Revenue"
-          value={`$${analyticsData.totalRevenue.toLocaleString()}`}
+          value={`₹${analyticsData.totalRevenue.toLocaleString()}`}
         />
       </div>
 

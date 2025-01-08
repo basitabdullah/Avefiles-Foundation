@@ -6,15 +6,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import MetaData from "../../components/MetaData.jsx";
 import { motion } from "framer-motion";
-import { MdAttachMoney } from "react-icons/md";
+import { MdCurrencyRupee } from "react-icons/md";
 import { useCartStore } from "../../stores/useCartStore.js";
-import { loadStripe } from "@stripe/stripe-js";
 import axios from "../../lib/axios.js";
 import { useProductStore } from "../../stores/useProductStore.js";
-
-const stripePromise = loadStripe(
-  "pk_test_51Q1WxcGOd09WDjBnE2HoXFh6QFlCciriJzX0GNGowTeX21TBg5eD0m8jCzwdGhVIZpR1GqXv7BqcnPaZt2ziWTol00sM23RRBO"
-);
 
 const Cart = () => {
   const {
@@ -24,16 +19,11 @@ const Cart = () => {
     total,
     subtotal,
     coupon,
-    isCouponApplied,
-    getMyCoupon,
-    validateCoupon,
-    removeCoupon,
     getCartItems,
     clearCart,
   } = useCartStore();
   const { products, getRecomemdedProducts } = useProductStore();
   const { addToCart } = useCartStore();
-  const [couponCode, setCouponCode] = useState("");
   const [showShippingForm, setShowShippingForm] = useState(false);
   const [shippingDetails, setShippingDetails] = useState({
     fullName: "",
@@ -41,7 +31,7 @@ const Cart = () => {
     city: "",
     state: "",
     pinCode: "",
-    phone: ""
+    phone: "",
   });
   const navigate = useNavigate();
 
@@ -50,34 +40,8 @@ const Cart = () => {
   }, [getRecomemdedProducts]);
 
   useEffect(() => {
-    getMyCoupon();
-  }, [getMyCoupon]);
-
-  useEffect(() => {
-    if (coupon) setCouponCode(coupon.code);
-  }, [coupon]);
-
-  useEffect(() => {
     getCartItems();
   }, [getCartItems]);
-
-  const handleStripePayment = async () => {
-    try {
-      const stripe = await stripePromise;
-      const res = await axios.post("/payment/create/checkout/session", {
-        products: cart,
-        couponCode: coupon ? coupon.code : null,
-      });
-      const session = res.data;
-      const result = await stripe.redirectToCheckout({ sessionId: session.id });
-
-      if (result.error) {
-        console.log(result.error);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const handleShippingSubmit = (e) => {
     e.preventDefault();
@@ -86,13 +50,15 @@ const Cart = () => {
 
   const handleRazorpayPayment = async () => {
     try {
-      const { data: { key } } = await axios.get("/payment/getkey");
-      
+      const {
+        data: { key },
+      } = await axios.get("/payment/getkey");
+
       console.log("Shipping details:", shippingDetails);
-      
+
       const { data } = await axios.post("/payment/checkout", {
-        amount: total,
-        shippingDetails
+        amount: total * 1.18,
+        shippingDetails,
       });
 
       console.log("Order created:", data);
@@ -107,7 +73,7 @@ const Cart = () => {
         order_id: data.order.id,
         notes: {
           shipping_details: JSON.stringify(shippingDetails),
-          user_id: localStorage.getItem('userId')
+          user_id: localStorage.getItem("userId"),
         },
         handler: async function (response) {
           try {
@@ -116,22 +82,27 @@ const Cart = () => {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_signature: response.razorpay_signature,
               shippingDetails,
-              amount: total
+              amount: total,
             };
-            
+
             console.log("Sending verification data:", verificationData);
-            
-            const { data } = await axios.post("/payment/paymentverification", verificationData);
-            
+
+            const { data } = await axios.post(
+              "/payment/paymentverification",
+              verificationData
+            );
+
             if (data.success) {
               await clearCart();
               toast.success("Payment successful!");
-              navigate('/purchase-success');
+              navigate("/purchase-success");
             }
           } catch (error) {
             console.error("Payment verification failed:", error);
-            toast.error(error.response?.data?.message || "Payment verification failed");
-            navigate('/purchase-failed');
+            toast.error(
+              error.response?.data?.message || "Payment verification failed"
+            );
+            navigate("/purchase-failed");
           }
         },
         prefill: {
@@ -139,8 +110,8 @@ const Cart = () => {
           contact: shippingDetails.phone,
         },
         theme: {
-          color: "#121212"
-        }
+          color: "#121212",
+        },
       };
 
       const razor = new window.Razorpay(options);
@@ -149,16 +120,6 @@ const Cart = () => {
       console.error("Payment initialization failed:", error);
       toast.error("Payment initialization failed");
     }
-  };
-
-  const handleApplyCoupon = async () => {
-    if (!couponCode) return;
-    validateCoupon(couponCode);
-  };
-
-  const handleRemoveCoupon = async () => {
-    await removeCoupon();
-    setCouponCode("");
   };
 
   const savings = subtotal - total;
@@ -226,7 +187,7 @@ const Cart = () => {
                     <img src={product.image} alt="err" />
                     <div className="details">
                       <h2>{product.name}</h2>
-                      <p>${product.price}</p>
+                      <p>₹{product.price}</p>
                       <button onClick={() => addToCart(product)}>
                         Add to cart
                       </button>
@@ -238,48 +199,26 @@ const Cart = () => {
           </div>
 
           <div className="right">
-            <p className="subtotal">Subtotal : ${subtotal}</p>
+            <p className="subtotal">Subtotal : ₹{subtotal}</p>
             {savings > 0 && (
-              <p className="saving">Saving : ${savings.toFixed(2)}</p>
+              <p className="saving">Saving : ₹{savings.toFixed(2)}</p>
             )}
             {coupon && (
               <p className="discount">
                 Discount : <span>-{coupon.discountPercentage}%</span>
               </p>
             )}
+            <p className="gst">GST (18%) : ₹{(total * 0.18).toFixed(2)}</p>
             <b className="total">
-              Total : <span>${total}</span>
+              Total : <span>₹{(total * 1.18).toFixed(2)}</span>
             </b>
 
-            <input
-              type="text"
-              placeholder="Coupon Code"
-              value={couponCode}
-              onChange={(e) => setCouponCode(e.target.value)}
-            />
-
-            <div className="coupon-buttons">
-              <button onClick={handleApplyCoupon}>Apply Coupon</button>
-              <button onClick={handleRemoveCoupon}>Remove Coupon</button>
-            </div>
-            {couponCode &&
-              (isCouponApplied ? (
-                <span className="green">
-                  {" "}
-                  ${savings} off using the <code>{coupon.code}</code>
-                </span>
-              ) : (
-                <span className="red err">
-                  <BiSolidError />
-                  No Coupon Applied
-                </span>
-              ))}
             {!showShippingForm ? (
-              <button 
-                className="checkout-btn" 
+              <button
+                className="checkout-btn"
                 onClick={() => setShowShippingForm(true)}
               >
-                <MdAttachMoney />
+                <MdCurrencyRupee />
                 Proceed to Checkout
               </button>
             ) : (
@@ -289,63 +228,75 @@ const Cart = () => {
                   placeholder="Full Name"
                   required
                   value={shippingDetails.fullName}
-                  onChange={(e) => setShippingDetails(prev => ({
-                    ...prev,
-                    fullName: e.target.value
-                  }))}
+                  onChange={(e) =>
+                    setShippingDetails((prev) => ({
+                      ...prev,
+                      fullName: e.target.value,
+                    }))
+                  }
                 />
                 <input
                   type="text"
                   placeholder="Address"
                   required
                   value={shippingDetails.address}
-                  onChange={(e) => setShippingDetails(prev => ({
-                    ...prev,
-                    address: e.target.value
-                  }))}
+                  onChange={(e) =>
+                    setShippingDetails((prev) => ({
+                      ...prev,
+                      address: e.target.value,
+                    }))
+                  }
                 />
                 <input
                   type="text"
                   placeholder="City"
                   required
                   value={shippingDetails.city}
-                  onChange={(e) => setShippingDetails(prev => ({
-                    ...prev,
-                    city: e.target.value
-                  }))}
+                  onChange={(e) =>
+                    setShippingDetails((prev) => ({
+                      ...prev,
+                      city: e.target.value,
+                    }))
+                  }
                 />
                 <input
                   type="text"
                   placeholder="State"
                   required
                   value={shippingDetails.state}
-                  onChange={(e) => setShippingDetails(prev => ({
-                    ...prev,
-                    state: e.target.value
-                  }))}
+                  onChange={(e) =>
+                    setShippingDetails((prev) => ({
+                      ...prev,
+                      state: e.target.value,
+                    }))
+                  }
                 />
                 <input
                   type="text"
                   placeholder="PIN Code"
                   required
                   value={shippingDetails.pinCode}
-                  onChange={(e) => setShippingDetails(prev => ({
-                    ...prev,
-                    pinCode: e.target.value
-                  }))}
+                  onChange={(e) =>
+                    setShippingDetails((prev) => ({
+                      ...prev,
+                      pinCode: e.target.value,
+                    }))
+                  }
                 />
                 <input
                   type="tel"
                   placeholder="Phone Number"
                   required
                   value={shippingDetails.phone}
-                  onChange={(e) => setShippingDetails(prev => ({
-                    ...prev,
-                    phone: e.target.value
-                  }))}
+                  onChange={(e) =>
+                    setShippingDetails((prev) => ({
+                      ...prev,
+                      phone: e.target.value,
+                    }))
+                  }
                 />
                 <button type="submit" className="checkout-btn">
-                  <MdAttachMoney />
+                  <MdCurrencyRupee />
                   Pay Now
                 </button>
               </form>

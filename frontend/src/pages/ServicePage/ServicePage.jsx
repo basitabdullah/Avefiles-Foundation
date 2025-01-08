@@ -8,7 +8,6 @@ const ServicePage = () => {
   useEffect(() => {
     fetchServices();
   }, [fetchServices]);
-  console.log(services);
 
   return (
     services && (
