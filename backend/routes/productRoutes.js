@@ -9,6 +9,7 @@ import {
   getSingleProduct,
   searchProducts,
   toggleFeaturedProducts,
+  toggleStockStatus,
 } from "../controllers/productController.js";
 import { adminRoute, protectRoute } from "../middlewares/authMiddleware.js";
 const router = express.Router();
@@ -22,5 +23,6 @@ router.patch("/:id",protectRoute ,adminRoute, toggleFeaturedProducts);
 router.get("/featured", getFeaturedProducts);
 router.get ("/search",searchProducts)
 router.get("/:id", getSingleProduct);
+router.patch("/:id/stock", protectRoute, adminRoute, toggleStockStatus);
 
 export default router;

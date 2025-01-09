@@ -6,16 +6,28 @@ export const addToCart = async (req, res) => {
     const { productId } = req.body;
     const userId = req.user._id;
 
+    // Check if product exists and is in stock
+    const product = await Product.findById(productId);
+    if (!product) {
+      return res.status(404).json({
+        message: "Product not found",
+      });
+    }
+
+    if (!product.inStock) {
+      return res.status(400).json({
+        message: "This product is currently out of stock",
+      });
+    }
+
     let cart = await Cart.findOne({ user: userId });
 
     if (!cart) {
-      // Create new cart if it doesn't exist
       cart = await Cart.create({
         user: userId,
         items: [{ product: productId, quantity: 1 }]
       });
     } else {
-      // Check if product exists in cart
       const existingItem = cart.items.find(
         item => item.product.toString() === productId
       );
@@ -29,7 +41,6 @@ export const addToCart = async (req, res) => {
       await cart.save();
     }
 
-    // Populate product details
     await cart.populate('items.product');
 
     res.status(200).json(cart.items);

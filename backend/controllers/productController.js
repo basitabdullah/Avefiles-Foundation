@@ -3,7 +3,7 @@ import cloudinary from "../lib/cloudinary.js";
 
 export const createProduct = async (req, res) => {
   try {
-    const { name, description, price, image, category } = req.body;
+    const { name, description, price, image, category, inStock = true } = req.body;
     let cloudinaryResponse = null;
     if (image) {
       cloudinaryResponse = await cloudinary.uploader.upload(image, {
@@ -19,6 +19,7 @@ export const createProduct = async (req, res) => {
         ? cloudinaryResponse.secure_url
         : "",
       category,
+      inStock,
     });
     res.status(201).json({
       message: "Product created successfully",
@@ -204,6 +205,31 @@ export const getSingleProduct = async (req, res) => {
     res.status(200).json(product);
   } catch (error) {
     res.status(401).json({
+      message: error.message,
+    });
+  }
+};
+
+export const toggleStockStatus = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await Product.findById(id);
+    
+    if (!product) {
+      return res.status(404).json({
+        message: "Product not found",
+      });
+    }
+
+    product.inStock = !product.inStock;
+    await product.save();
+
+    res.status(200).json({
+      message: "Product stock status updated successfully",
+      inStock: product.inStock
+    });
+  } catch (error) {
+    res.status(500).json({
       message: error.message,
     });
   }

@@ -39,6 +39,11 @@ export const useCartStore = create((set, get) => ({
 
   addToCart: async (product) => {
     try {
+      if (!product.inStock) {
+        toast.error("This product is currently out of stock");
+        return;
+      }
+
       await axios.post("/cart", { productId: product._id });
       toast.success("Product added to cart");
 

@@ -119,4 +119,23 @@ export const useProductStore = create((set, get) => ({
       toast.error(error.response.data.meessage || "Something went wrong");
     }
   },
+
+  toggleStockStatus: async (id) => {
+    set({ loading: true });
+    try {
+      const res = await axios.patch(`/product/${id}/stock`);
+      set((prev) => ({
+        products: prev.products.map((product) =>
+          product._id === id
+            ? { ...product, inStock: res.data.inStock }
+            : product
+        ),
+        loading: false,
+      }));
+      toast.success(res.data.inStock ? "Product marked as in stock" : "Product marked as out of stock");
+    } catch (error) {
+      toast.error(error.response.data.message || "Something went wrong");
+      set({ loading: false });
+    }
+  },
 }));

@@ -2,14 +2,20 @@ import React, { useEffect } from "react";
 import { MdDelete } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
+import { MdInventory } from "react-icons/md";
 import "./Products.scss";
 import { useProductStore } from "../../../stores/useProductStore";
 import MinLoader from "../../Loaders/minLoader/MinLoader";
+
 const Products = () => {
-  const {toggleFeaturedProduct, fetchAllProducts, products, loading, deleteProduct } =
-    useProductStore();
-
-
+  const { 
+    toggleFeaturedProduct, 
+    toggleStockStatus, 
+    fetchAllProducts, 
+    products, 
+    loading, 
+    deleteProduct 
+  } = useProductStore();
 
   useEffect(() => {
     fetchAllProducts();
@@ -28,6 +34,7 @@ const Products = () => {
                 <th>Price</th>
                 <th>Category</th>
                 <th>Featured</th>
+                <th>Stock</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -50,8 +57,20 @@ const Products = () => {
                   <td>₹{product.price}</td>
                   <td>{product.category}</td>
                   <td>
-                    <button className="featured-button-admin-dashboard" onClick={()=>toggleFeaturedProduct(product._id)}>
+                    <button 
+                      className="featured-button-admin-dashboard" 
+                      onClick={() => toggleFeaturedProduct(product._id)}
+                    >
                       {product.isFeatured ? <FaStar /> : <IoClose />}
+                    </button>
+                  </td>
+                  <td>
+                    <button 
+                      className={`stock-button ${product.inStock ? 'in-stock' : 'out-of-stock'}`}
+                      onClick={() => toggleStockStatus(product._id)}
+                    >
+                      <MdInventory />
+                      <span>{product.inStock ? 'In Stock' : 'Out of Stock'}</span>
                     </button>
                   </td>
                   <td>
