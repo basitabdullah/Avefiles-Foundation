@@ -7,50 +7,43 @@ const About = () => {
     {
       id: 1,
       image:
-        "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dz",
-      title: "Clean Water Initiative",
-      location: "Rural Communities, Africa",
-      impact: "50,000+ beneficiaries",
+        "https://lh3.googleusercontent.com/p/AF1QipOSSzvgTfWOScsTvG8FPEkjFEdA4eopceJTgEr6=s1360-w1360-h1020",
+      title: "Youtube Fest Organisation",
+      location: "Srinagar, Jammu and Kashmir",
+      impact: "1000+ beneficiaries",
     },
     {
       id: 2,
       image:
-        "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Education for All",
-      location: "South Asia",
-      impact: "10,000+ students",
+        "https://lh3.googleusercontent.com/p/AF1QipMat-7sCqY0swWGm2hQXSVKbFhx1TMIDL5sEPiD=s1360-w1360-h1020",
+      title: "Open Iftaar Party",
+      location: "Srinagar, Jammu and Kashmir",
+      impact: "100+ people",
     },
+    
     {
       id: 3,
       image:
-        "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Sustainable Agriculture",
-      location: "Latin America",
-      impact: "500+ farmers",
+        "https://lh3.googleusercontent.com/p/AF1QipNjaEZWIfCPhsJ2GWNnyTBl0HZut-OYmEETBvFx=s1360-w1360-h1020",
+      title: "Education Support",
+      location: "Srinagar, Jammu and Kashmir",
+      impact: "250+ students",
     },
     {
       id: 4,
       image:
-        "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Healthcare Access",
-      location: "Southeast Asia",
-      impact: "25,000+ patients",
+        "https://lh3.googleusercontent.com/p/AF1QipPL1fH91CQdGa9qxmIMGJB7pXPzc3OdzXsBkBMe=s1360-w1360-h1020",
+      title: "Youth Empowerment",
+      location: "All over India",
+      impact: "15,000+ youth",
     },
     {
       id: 5,
       image:
-        "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Youth Empowerment",
-      location: "Global Programs",
-      impact: "15,000+ youth",
-    },
-    {
-      id: 6,
-      image:
-        "https://images.unsplash.com/photo-1501504905252-473c47e087f8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      title: "Environmental Conservation",
-      location: "Worldwide",
-      impact: "100+ ecosystems",
+        "https://lh3.googleusercontent.com/p/AF1QipM_5QVgl3-Ye22J_vgJRZAYZYOBC99q5X-yWSjp=s1360-w1360-h1020",
+      title: "Material Donation",
+      location: "All over India",
+      impact: "5+ organizations",
     },
   ];
 
@@ -185,7 +178,7 @@ const DirectorMessage = () => {
         transition={{ duration: 0.8 }}
       >
         <img
-          src="https://images.unsplash.com/photo-1560250097-0b93528c311a"
+          src="https://lh3.googleusercontent.com/p/AF1QipOS2NcQSaJnAo6q4HRiRoqQx0aAwXE8gwPvjdFH=s1360-w1360-h1020"
           alt="Director"
           className="director-image"
         />
@@ -197,7 +190,7 @@ const DirectorMessage = () => {
             engagement. Together, we can build a better future for generations
             to come."
           </p>
-          <h3>John Smith</h3>
+          <h3>Syed Kifayat</h3>
           <p className="director-title">Executive Director</p>
         </div>
       </motion.div>
@@ -208,7 +201,7 @@ const DirectorMessage = () => {
 const OurTeam = () => {
   const teamMembers = [
     {
-      name: "Sarah Johnson",
+      name: "Numan Bhat",
       role: "Operations Manager",
       image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e",
     },

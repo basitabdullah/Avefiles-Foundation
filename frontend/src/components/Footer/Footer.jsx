@@ -1,8 +1,7 @@
 import "./Footer.scss";
-import { BsTwitterX } from "react-icons/bs";
-import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import logo from "../../assets/logo.jpg";
+import { FiInstagram } from "react-icons/fi";
 const Footer = () => {
   return (
     <footer className="footer">
@@ -16,34 +15,29 @@ const Footer = () => {
           <img src={logo} alt="err" />
          <h1>Avefiles Foundation</h1>
          </div>
-        <p>Helping others is our first priority</p>
+        <p>Kursoo Rajbagh, Srinagar, Jammu and Kashmir</p>
 
-        <p>Copyright 2024 &copy; avefiles foundation</p>
+        <p>Copyright 2025 &copy; avefiles foundation</p>
       </div>
 
       <div className="right-footer">
         <h4>Follow Us</h4>
         <div className="link">
-          <BsTwitterX />
-          <a href="https://x.com/BASITAbdul15666" target="_blank">
-            Twitter
+          <FiInstagram />
+          <a href="https://www.instagram.com/avefiles.foundation/" target="_blank">
+            Instagram
           </a>
         </div>
         <div className="link">
           <FaLinkedin />
           <a
-            href="https://www.linkedin.com/in/fahim-abdullah-474900253/"
+            href="https://www.linkedin.com/company/avefiles-foundation/?originalSubdomain=in"
             target="_blank"
           >
             LinkedIn
           </a>
         </div>
-        <div className="link">
-          <FaGithub />
-          <a href="https://github.com/basitabdullah" target="_blank">
-            Github
-          </a>
-        </div>
+     
       </div>
     </footer>
   );
