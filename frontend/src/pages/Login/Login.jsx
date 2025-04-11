@@ -4,6 +4,8 @@ import MetaData from "../../components/MetaData.jsx";
 import { motion } from "framer-motion";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import { useUserStore } from "../../stores/useUserStore.js";
+import { Link } from "react-router-dom";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -51,7 +53,7 @@ const Login = () => {
           <IoArrowForwardCircleOutline />
         </button>
         <p className="register-text">
-          Don't have an account? <a href="/signup">Register</a>
+          Don't have an account? <Link to="/signup">Register</Link>
         </p>
       </form>
     </motion.div>

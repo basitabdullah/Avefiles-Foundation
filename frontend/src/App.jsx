@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, HashRouter} from "react-router-dom";
 import Shop from "./pages/Shop/Shop";
 import "./styles/global.scss";
 import Navbar from "./components/Navbar/Navbar";
@@ -44,7 +44,7 @@ const App = () => {
   if (checkingAuth) return <Loader />;
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Navbar />
       <Toaster />
       <ScrollToTop />
@@ -86,7 +86,7 @@ const App = () => {
         />
       </Routes>
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
