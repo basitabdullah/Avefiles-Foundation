@@ -43,24 +43,39 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="left-sec">
-        <Link to={"/"} className={getActiveClass("/")}>
+        <Link
+          to={"/"}
+          className={getActiveClass("/")}
+        >
           <p>Home</p>
         </Link>
-        <Link to={"/shop"} className={getActiveClass("/shop")}>
+        <Link
+          to={"/shop"}
+          className={getActiveClass("/shop")}
+        >
           <p>Shop</p>
         </Link>
 
-        <Link to={"/services"} className={getActiveClass("/services")}>
+        <Link
+          to={"/services"}
+          className={getActiveClass("/services")}
+        >
           <p>Services</p>
         </Link>
-        <Link to={"/about"} className={getActiveClass("/about")}>
+        <Link
+          to={"/about"}
+          className={getActiveClass("/about")}
+        >
           <p>ABOUT</p>
         </Link>
       </div>
       <Link to={"/"}>
         <div className="logo-wrapper">
           <div className="logo">
-            <img src={logo} alt="err" />
+            <img
+              src={logo}
+              alt="err"
+            />
           </div>
           <p>Avefiles Foundation</p>
         </div>
@@ -72,15 +87,23 @@ const Navbar = () => {
         </Link>
 
         {user && user.role === "admin" && (
-          <Link to={"/admin-dashboard"} className="admin-icon">
+          <Link
+            to={"/admin-dashboard"}
+            className="admin-icon"
+          >
             <IoLockOpenOutline />
             <p>Admin Dashboard</p>
           </Link>
         )}
-        <Link to="/login" className="login-icon">
-          <IoIosLogIn />
-          <p>Login</p>
-        </Link>
+        {!user && (
+          <Link
+            to="/login"
+            className="login-icon"
+          >
+            <IoIosLogIn />
+            <p>Login</p>
+          </Link>
+        )}
 
         {user && (
           <>
@@ -94,7 +117,10 @@ const Navbar = () => {
         )}
 
         {user && (
-          <div className="profile-menu-container" ref={profileMenuRef}>
+          <div
+            className="profile-menu-container"
+            ref={profileMenuRef}
+          >
             <button
               className="profile-button"
               onClick={() => setShowProfileMenu(!showProfileMenu)}
@@ -109,7 +135,10 @@ const Navbar = () => {
                   <small>{user.email}</small>
                 </div>
                 <div className="profile-menu-items">
-                  <Link to="/profile" onClick={() => setShowProfileMenu(false)}>
+                  <Link
+                    to="/profile"
+                    onClick={() => setShowProfileMenu(false)}
+                  >
                     <IoPersonOutline />
                     My Profile
                   </Link>
@@ -120,7 +149,10 @@ const Navbar = () => {
                     <BsCart2 />
                     My Orders
                   </Link>
-                  <button className="logout-btn" onClick={logout}>
+                  <button
+                    className="logout-btn"
+                    onClick={logout}
+                  >
                     Logout
                   </button>
                 </div>
@@ -142,7 +174,10 @@ const Navbar = () => {
           </>
         )}
         {user && user.role === "admin" && (
-          <Link to={"/admin-dashboard"} className="admin-icon">
+          <Link
+            to={"/admin-dashboard"}
+            className="admin-icon"
+          >
             <IoLockOpenOutline />
             <p>Admin Dashboard</p>
           </Link>
@@ -163,12 +198,18 @@ const Navbar = () => {
             <p>ABOUT</p>
           </Link>
 
-          <Link to="/login" className="login-icon">
+          <Link
+            to="/login"
+            className="login-icon"
+          >
             <p>LOGIN</p>
           </Link>
 
           {user && (
-            <button className="logout-btn" onClick={logout}>
+            <button
+              className="logout-btn"
+              onClick={logout}
+            >
               Logout
             </button>
           )}

@@ -7,8 +7,8 @@ import { useUserStore } from "../../stores/useUserStore.js";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("basit@gmail.com");
+  const [password, setPassword] = useState("basit123");
   const [error, setError] = useState("");
 
   const { login, loading } = useUserStore();

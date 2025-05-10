@@ -4,6 +4,7 @@ import "./AdminOrders.scss";
 import { toast } from "react-hot-toast";
 import { FaEdit } from "react-icons/fa";
 import Loader from "../../../components/Loaders/maxLoader/Loader";
+import {Link} from "react-router-dom"
 
 const AdminOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -96,14 +97,12 @@ const AdminOrders = () => {
                   </select>
                 </td>
                 <td>
-                  <button
+                  <Link
                     className="view-details-btn"
-                    onClick={() =>
-                      (window.location.href = `/admin/orders/${order._id}`)
-                    }
+                   to={`/admin/orders/${order._id}`}
                   >
                     <FaEdit /> Details
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))}
